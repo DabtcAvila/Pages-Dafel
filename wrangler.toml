@@ -1,5 +1,0 @@
-name = "dafel-pages"
-compatibility_date = "2025-12-20"
-
-# Configuración simple para Cloudflare Pages
-pages_build_output_dir = "out"
