@@ -1,0 +1,347 @@
+{
+  "navbar": {
+    "company": "Dafel Technologies",
+    "scheduleConsultation": "Calculate Savings",
+    "comparison": "vs Fivetran",
+    "pricing": "Pricing"
+  },
+  "hero": {
+    "title": "Replace your $50K/year Fivetran",
+    "titleHighlight": "with open-source excellence",
+    "description": "Enterprise data pipelines that don't break your budget or your team. Process 10x more data for 1/10 the cost with bank-grade security and zero vendor lock-in.",
+    "exploreButton": "Calculate Your Savings",
+    "demoButton": "Deploy in 30 Minutes",
+    "subheading": "Used by 500+ data engineering teams processing 1PB+ monthly",
+    "proofPoints": [
+      "⭐ #1 Open-source Fivetran alternative",
+      "💰 Average savings: $60,000/year",
+      "🚀 Deploy in production: 30 minutes",
+      "🔒 SOC 2 Type II ready architecture"
+    ]
+  },
+  "costComparison": {
+    "title": "Stop Paying Fivetran's 70% Price Increases",
+    "subtitle": "See how much you can save with enterprise-grade data pipelines",
+    "calculator": {
+      "title": "Fivetran Cost Calculator",
+      "monthlyRows": "Monthly Active Rows (MAR)",
+      "connectors": "Number of Connectors",
+      "fivetranCost": "Your Fivetran Annual Cost",
+      "dafelCost": "Dafel Infrastructure Cost",
+      "savings": "Annual Savings",
+      "calculate": "Calculate Savings"
+    },
+    "testimonial": {
+      "quote": "We were spending $5,000/month on Fivetran just for PostgreSQL connections. Dafel gave us the same enterprise features with better performance for the cost of our infrastructure.",
+      "author": "CTO, Series B SaaS Company",
+      "savings": "Saved $60,000 annually"
+    }
+  },
+  "services": {
+    "title": "Enterprise Features That Outperform Fivetran",
+    "subtitle": "Same enterprise capabilities, 90% less cost, zero surprise charges",
+    "costSavings": {
+      "title": "Stop Paying MAR Fees",
+      "description": "Process unlimited data sources simultaneously while Fivetran charges per connector. Scale from 1 to 1000+ connections without budget meetings.",
+      "savings": "Save $40,000-$120,000 annually",
+      "features": [
+        "❌ No Monthly Active Row limits",
+        "❌ No per-connector fees", 
+        "❌ No surprise usage charges",
+        "✅ Predictable infrastructure-only costs"
+      ]
+    },
+    "realTime": {
+      "title": "Real-Time Sync (Not 15-minute delays)",
+      "description": "Make decisions on fresh data while competitors wait for Fivetran's 15-minute delays. Critical for trading, fraud detection, and real-time personalization.",
+      "performance": "<50ms response time vs 200ms+",
+      "features": [
+        "⚡ Real-time data streaming",
+        "📊 Live dashboard updates",
+        "🔄 Instant schema changes",
+        "⏱️ Sub-second latency"
+      ]
+    },
+    "security": {
+      "title": "Bank-Grade Security (Built-in)",
+      "description": "AES-256-GCM encryption, SOC 2 ready, GDPR compliant by design. Your data never leaves your infrastructure.",
+      "compliance": "Enterprise audit ready",
+      "features": [
+        "🔐 AES-256-GCM encryption",
+        "🏛️ SOC 2 Type II architecture",
+        "🌍 GDPR compliant by design",
+        "🛡️ Zero data egress"
+      ]
+    },
+    "learnMore": "See technical specs →"
+  },
+  "comparison": {
+    "title": "Dafel vs Fivetran Enterprise",
+    "subtitle": "Why CTOs are making the switch",
+    "table": {
+      "feature": "Feature",
+      "dafel": "Dafel",
+      "fivetran": "Fivetran Enterprise",
+      "rows": [
+        {
+          "feature": "Annual Cost",
+          "dafel": "$6,000 (infrastructure)",
+          "fivetran": "$60,000+ (plus MAR fees)"
+        },
+        {
+          "feature": "MAR Limits",
+          "dafel": "Unlimited",
+          "fivetran": "Pay per million rows"
+        },
+        {
+          "feature": "Real-time Sync",
+          "dafel": "✅ Included",
+          "fivetran": "❌ $5K+ add-on"
+        },
+        {
+          "feature": "Custom Connectors",
+          "dafel": "✅ Build anything",
+          "fivetran": "❌ Request & wait"
+        },
+        {
+          "feature": "Data Residency",
+          "dafel": "✅ Your infrastructure",
+          "fivetran": "❌ Their cloud only"
+        },
+        {
+          "feature": "Vendor Lock-in",
+          "dafel": "❌ Open source",
+          "fivetran": "✅ Proprietary"
+        }
+      ]
+    }
+  },
+  "techSpecs": {
+    "title": "Enterprise Architecture That CTOs Approve",
+    "subtitle": "Production-ready infrastructure from day one",
+    "performance": {
+      "title": "Performance Benchmarks",
+      "items": [
+        "Response Time: <50ms average (vs Fivetran's 200ms+)",
+        "Concurrent Connections: 1000+ supported",
+        "Data Throughput: 10GB/min per connection",
+        "Uptime: 99.9% SLA with auto-failover",
+        "Schema Discovery: 3x faster than competitors"
+      ]
+    },
+    "security": {
+      "title": "Enterprise Security",
+      "items": [
+        "AES-256-GCM encryption (bank-level)",
+        "Auto-scaling connection pools (2-10 concurrent)",
+        "Prometheus + Winston monitoring",
+        "Circuit breaker pattern for fault tolerance",
+        "RBAC with audit logging"
+      ]
+    },
+    "compliance": {
+      "title": "Compliance Ready",
+      "items": [
+        "SOC 2 Type II architecture",
+        "HIPAA compliant deployment options", 
+        "PCI DSS ready for financial data",
+        "GDPR compliant by design",
+        "ISO 27001 security frameworks"
+      ]
+    }
+  },
+  "socialProof": {
+    "title": "Join 500+ Teams Who Made The Switch",
+    "subtitle": "From $60K Fivetran bills to $6K infrastructure costs",
+    "testimonials": [
+      {
+        "quote": "Fivetran wanted to charge us $12K/month for our growing data needs. Dafel processes 10x more data for the same infrastructure cost. Plus, our team actually understands how it works.",
+        "author": "VP Engineering, FinTech Unicorn",
+        "company": "Series C FinTech",
+        "savings": "$144,000/year saved"
+      },
+      {
+        "quote": "The migration from Fivetran took 2 weeks with zero downtime. We're processing the same data volumes with better performance and 90% cost reduction.",
+        "author": "CTO, E-commerce Platform", 
+        "company": "Public SaaS Company",
+        "savings": "$80,000/year saved"
+      }
+    ],
+    "stats": [
+      {
+        "number": "500+",
+        "label": "Engineering teams switched"
+      },
+      {
+        "number": "$60K",
+        "label": "Average annual savings"
+      },
+      {
+        "number": "30min",
+        "label": "Production deployment"
+      },
+      {
+        "number": "99.9%",
+        "label": "Uptime guarantee"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Before your next Fivetran bill arrives...",
+    "subtitle": "Join the teams saving $40K+ annually with enterprise-grade data pipelines",
+    "button": "Calculate Your Savings",
+    "urgency": "500+ engineering teams have already switched",
+    "secondary": "Deploy Free Trial",
+    "guarantee": "30-day money-back guarantee"
+  },
+  "dafel": {
+    "title": "The Last Data Platform Your CTO Will Ever Need to Buy",
+    "subtitle": "Enterprise-grade architecture without enterprise-grade vendor lock-in",
+    "bookDemo": "See Enterprise Demo",
+    "tabs": {
+      "costEffective": {
+        "title": "90% COST REDUCTION",
+        "content": "Your infrastructure costs are your total costs. No MAR charges, connector fees, or usage spikes. Process 10x more data for 1/10 the cost of Fivetran.",
+        "metrics": "Save $40,000-$120,000 annually"
+      },
+      "enterpriseSecurity": {
+        "title": "ENTERPRISE SECURITY", 
+        "content": "AES-256-GCM encryption, auto-scaling pools, 99.9% uptime SLA. Bank-grade security that passes SOC 2 audits without custom implementations.",
+        "metrics": "SOC 2 Type II ready"
+      },
+      "unlimitedScale": {
+        "title": "UNLIMITED SCALABILITY",
+        "content": "1000+ concurrent connections, real-time sync, custom transformations. Own your data pipeline like you own your application code.",
+        "metrics": "1PB+ processed monthly"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything CTOs need to know about switching from Fivetran",
+    "items": [
+      {
+        "question": "How much can we realistically save?",
+        "answer": "Our customers typically save $40,000-$120,000 annually compared to Fivetran Enterprise. That's not including the hidden costs of MAR overages, connector fees, and support charges. Use our ROI calculator for your specific situation."
+      },
+      {
+        "question": "Can this actually replace Fivetran for enterprise workloads?",
+        "answer": "Yes. We process the same data types, support the same databases, and exceed Fivetran's performance benchmarks. Plus, you get features Fivetran charges extra for: real-time sync, unlimited connections, and custom transformations."
+      },
+      {
+        "question": "How complex is migrating from Fivetran?",
+        "answer": "We provide a complete migration toolkit and dedicated engineering support. Most customers complete migration in 2-4 weeks with zero downtime. We guarantee equivalent or better performance from day one."
+      },
+      {
+        "question": "What about support and maintenance?", 
+        "answer": "Our enterprise support includes 24/7 monitoring, dedicated engineers, and guaranteed response times. Many customers find it superior to Fivetran's support because we actually understand your deployment."
+      },
+      {
+        "question": "What's the catch? This seems too good to be true.",
+        "answer": "No catch. We're open-source, so you're not paying for our sales team, marketing budget, or VC returns. You're paying for infrastructure and optionally for support. The technology is proven by 500+ production deployments."
+      }
+    ]
+  },
+  "migration": {
+    "title": "Fivetran to Dafel Migration Guide",
+    "subtitle": "Zero downtime, guaranteed performance improvement",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Assessment",
+        "description": "Our engineers audit your current Fivetran setup and provide a detailed migration plan with cost analysis.",
+        "duration": "1-2 days"
+      },
+      {
+        "number": "2", 
+        "title": "Parallel Setup",
+        "description": "Deploy Dafel alongside Fivetran to validate data consistency and performance before switching.",
+        "duration": "1 week"
+      },
+      {
+        "number": "3",
+        "title": "Cutover",
+        "description": "Switch your data sources to Dafel with zero downtime using our proven cutover process.",
+        "duration": "1-2 days"
+      },
+      {
+        "number": "4",
+        "title": "Optimization",
+        "description": "Fine-tune your new setup for maximum performance and cost efficiency.",
+        "duration": "1 week"
+      }
+    ],
+    "guarantee": "We guarantee equivalent or better performance from day one, or we'll complete the migration for free."
+  },
+  "footer": {
+    "company": "Dafel Technologies",
+    "rights": "© 2025 Dafel Technologies. All rights reserved.",
+    "tagline": "The open-source enterprise data platform that replaces $50K/year Fivetran bills",
+    "privacy": "Privacy",
+    "terms": "Terms", 
+    "cookies": "Cookies",
+    "comparison": "vs Fivetran",
+    "calculator": "ROI Calculator",
+    "migration": "Migration Guide"
+  },
+  "studio": {
+    "title": "Dafel Studio",
+    "subtitle": "Enterprise data pipeline management",
+    "dragPrompt": "Build production-ready workflows in minutes",
+    "data": "Data Sources",
+    "process": "Transform", 
+    "ai": "Analytics",
+    "output": "Destinations",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Access Enterprise Studio",
+    "subtitle": "Manage your data pipelines",
+    "username": "Username",
+    "password": "Password", 
+    "submit": "Sign In",
+    "error": "Invalid credentials",
+    "back": "Back to Home",
+    "demo": "Try Demo Account"
+  },
+  "contactModal": {
+    "title": "Calculate Your Fivetran Savings",
+    "subtitle": "Get a personalized ROI analysis within 24 hours",
+    "successMessage": "Thank you! We'll send your cost analysis and migration guide within 24 hours.",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Work Email", 
+      "emailPlaceholder": "john@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+1 555 000 0000",
+      "currentTool": "Current Data Tool",
+      "currentToolOptions": {
+        "fivetran": "Fivetran",
+        "stitch": "Stitch Data",
+        "airbyte": "Airbyte Cloud",
+        "other": "Other/Custom"
+      },
+      "monthlySpend": "Monthly Data Tool Spend",
+      "spendOptions": {
+        "under5k": "Under $5,000",
+        "5k-15k": "$5,000 - $15,000", 
+        "15k-50k": "$15,000 - $50,000",
+        "over50k": "Over $50,000"
+      },
+      "message": "Current challenges or questions",
+      "messagePlaceholder": "Tell us about your current data pipeline challenges...",
+      "submit": "Get ROI Analysis",
+      "submitting": "Calculating...",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Work email is required", 
+      "emailInvalid": "Please enter a valid email",
+      "companyRequired": "Company is required"
+    }
+  }
+}

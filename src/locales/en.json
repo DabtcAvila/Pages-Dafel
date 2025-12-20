@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "company": "Dafel Technologies",
+    "scheduleConsultation": "Schedule Advisory",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Actuarial Services.",
+    "titleHighlight": "Absolute Precision.",
+    "description": "Specialized actuarial consulting for labor obligation valuations. Full compliance with NIF D-3, IFRS-19 and USGAAP for your company.",
+    "exploreButton": "Explore Solutions",
+    "demoButton": "Request Demo"
+  },
+  "framework": {
+    "titleLine1": "The Foundry",
+    "titleLine2": "Ontology",
+    "subtitle": "Activate the power of your data and analytics.",
+    "ctaButton": "Get Started with the Ontology",
+    "panelBrand": "Foundry",
+    "panelTitle": "Ontology Core",
+    "layers": {
+      "semantic": {
+        "title": "Semantic",
+        "features": [
+          "Dynamic Objects & Links",
+          "Multi-Modal Properties",
+          "Ontology Primitives"
+        ]
+      },
+      "kinetic": {
+        "title": "Kinetic",
+        "features": [
+          "AI-Driven Actions & Functions",
+          "Process Mining & Automation",
+          "Action Orchestration",
+          "Real-Time Monitoring"
+        ]
+      },
+      "dynamic": {
+        "title": "Dynamic",
+        "features": [
+          "AI-Powered Decisions",
+          "Multi-Step Simulations",
+          "Decision Capture & Learning"
+        ]
+      }
+    }
+  },
+  "services": {
+    "title": "Specialized Services",
+    "subtitle": "Comprehensive actuarial consulting for labor obligation compliance",
+    "aiDecisions": {
+      "title": "Seniority Premium",
+      "description": "Actuarial valuation of seniority premium obligations in accordance with Federal Labor Law and NIF D-3."
+    },
+    "automation": {
+      "title": "Severance Pay",
+      "description": "Calculation of liabilities for legal severance and defined benefit plans under international standards."
+    },
+    "predictive": {
+      "title": "Pension Plans",
+      "description": "Design and valuation of retirement plans, actuarial risk analysis and demographic projections."
+    },
+    "learnMore": "Learn more →"
+  },
+  "cta": {
+    "title": "Start your digital transformation",
+    "subtitle": "Join leading companies that trust our technology",
+    "button": "Schedule Consultation"
+  },
+  "dafel": {
+    "title": "Dafel",
+    "subtitle": "The Data & AI Platform powering your company's future.",
+    "bookDemo": "Get started",
+    "tabs": {
+      "dataPlatform": {
+        "title": "DATA PLATFORM",
+        "content": "A Data Lakehouse built for scale. Our platform ensures full data governance and lineage across your operations."
+      },
+      "aiPlatform": {
+        "title": "AI PLATFORM",
+        "content": "From Generative AI to multiple classes of Machine Learning Models, Dafel is AI tailored to your operations."
+      },
+      "aiApplications": {
+        "title": "AI-POWERED APPLICATIONS",
+        "content": "Gain intelligence, control and solve your most complex challenges with your Data and AI tailored to your operations."
+      }
+    }
+  },
+  "footer": {
+    "company": "Dafel Technologies",
+    "rights": "© 2025 Dafel Technologies. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "studio": {
+    "title": "Dafel Studio",
+    "dragPrompt": "Drag components to build your workflow",
+    "data": "Data",
+    "process": "Process",
+    "ai": "AI",
+    "output": "Output",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Access Studio",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "error": "Invalid credentials",
+    "back": "Back to Home"
+  },
+  "contactModal": {
+    "title": "Schedule Consultation",
+    "subtitle": "We'll get back to you within 24 hours",
+    "successMessage": "Thank you! We've received your request and will get back to you soon.",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+1 555 000 0000",
+      "preferredTime": "Preferred time (optional)",
+      "timeOptions": {
+        "flexible": "Flexible",
+        "morning": "Morning (9:00 AM - 1:00 PM)",
+        "afternoon": "Afternoon (2:00 PM - 6:00 PM)"
+      },
+      "message": "Message or comments (optional)",
+      "messagePlaceholder": "Tell us about your project or needs...",
+      "submit": "Send Request",
+      "submitting": "Sending...",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "companyRequired": "Company is required"
+    }
+  }
+}

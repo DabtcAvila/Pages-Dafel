@@ -1,0 +1,347 @@
+{
+  "navbar": {
+    "company": "Dafel Technologies",
+    "scheduleConsultation": "Calcular Ahorros",
+    "comparison": "vs Fivetran",
+    "pricing": "Precios"
+  },
+  "hero": {
+    "title": "Reemplaza tu factura de $50K/año de Fivetran",
+    "titleHighlight": "con excelencia open-source",
+    "description": "Pipelines de datos empresariales que no destrozan tu presupuesto ni tu equipo. Procesa 10x más datos por 1/10 del costo con seguridad bancaria y cero dependencia de proveedores.",
+    "exploreButton": "Calcula Tus Ahorros",
+    "demoButton": "Despliega en 30 Minutos",
+    "subheading": "Usado por 500+ equipos de ingeniería de datos procesando 1PB+ mensual",
+    "proofPoints": [
+      "⭐ #1 Alternativa open-source a Fivetran",
+      "💰 Ahorro promedio: $60,000/año",
+      "🚀 Despliegue en producción: 30 minutos",
+      "🔒 Arquitectura lista para SOC 2 Tipo II"
+    ]
+  },
+  "costComparison": {
+    "title": "Deja de Pagar los Incrementos del 70% de Fivetran",
+    "subtitle": "Ve cuánto puedes ahorrar con pipelines de datos empresariales",
+    "calculator": {
+      "title": "Calculadora de Costos de Fivetran",
+      "monthlyRows": "Filas Activas Mensuales (MAR)",
+      "connectors": "Número de Conectores",
+      "fivetranCost": "Tu Costo Anual de Fivetran",
+      "dafelCost": "Costo de Infraestructura Dafel",
+      "savings": "Ahorros Anuales",
+      "calculate": "Calcular Ahorros"
+    },
+    "testimonial": {
+      "quote": "Gastábamos $5,000/mes en Fivetran solo para conexiones PostgreSQL. Dafel nos dio las mismas características empresariales con mejor rendimiento por el costo de nuestra infraestructura.",
+      "author": "CTO, SaaS Serie B",
+      "savings": "Ahorró $60,000 anuales"
+    }
+  },
+  "services": {
+    "title": "Características Empresariales que Superan a Fivetran",
+    "subtitle": "Mismas capacidades empresariales, 90% menos costo, cero cargos sorpresa",
+    "costSavings": {
+      "title": "Deja de Pagar Tarifas MAR",
+      "description": "Procesa fuentes de datos ilimitadas simultáneamente mientras Fivetran cobra por conector. Escala de 1 a 1000+ conexiones sin reuniones de presupuesto.",
+      "savings": "Ahorra $40,000-$120,000 anuales",
+      "features": [
+        "❌ Sin límites de Filas Activas Mensuales",
+        "❌ Sin tarifas por conector",
+        "❌ Sin cargos sorpresa de uso",
+        "✅ Costos predecibles solo de infraestructura"
+      ]
+    },
+    "realTime": {
+      "title": "Sincronización en Tiempo Real (No demoras de 15 minutos)",
+      "description": "Toma decisiones con datos frescos mientras la competencia espera las demoras de 15 minutos de Fivetran. Crítico para trading, detección de fraude y personalización en tiempo real.",
+      "performance": "<50ms tiempo de respuesta vs 200ms+",
+      "features": [
+        "⚡ Streaming de datos en tiempo real",
+        "📊 Actualizaciones de dashboard en vivo",
+        "🔄 Cambios de schema instantáneos",
+        "⏱️ Latencia sub-segundo"
+      ]
+    },
+    "security": {
+      "title": "Seguridad Bancaria (Integrada)",
+      "description": "Encriptación AES-256-GCM, listo para SOC 2, cumplimiento GDPR por diseño. Tus datos nunca salen de tu infraestructura.",
+      "compliance": "Listo para auditorías empresariales",
+      "features": [
+        "🔐 Encriptación AES-256-GCM",
+        "🏛️ Arquitectura SOC 2 Tipo II",
+        "🌍 Cumplimiento GDPR por diseño",
+        "🛡️ Cero egreso de datos"
+      ]
+    },
+    "learnMore": "Ver especificaciones técnicas →"
+  },
+  "comparison": {
+    "title": "Dafel vs Fivetran Enterprise",
+    "subtitle": "Por qué los CTOs están cambiando",
+    "table": {
+      "feature": "Característica",
+      "dafel": "Dafel",
+      "fivetran": "Fivetran Enterprise",
+      "rows": [
+        {
+          "feature": "Costo Anual",
+          "dafel": "$6,000 (infraestructura)",
+          "fivetran": "$60,000+ (más tarifas MAR)"
+        },
+        {
+          "feature": "Límites MAR",
+          "dafel": "Ilimitado",
+          "fivetran": "Pago por millón de filas"
+        },
+        {
+          "feature": "Sync en Tiempo Real",
+          "dafel": "✅ Incluido",
+          "fivetran": "❌ Complemento $5K+"
+        },
+        {
+          "feature": "Conectores Personalizados",
+          "dafel": "✅ Construye cualquier cosa",
+          "fivetran": "❌ Solicita y espera"
+        },
+        {
+          "feature": "Residencia de Datos",
+          "dafel": "✅ Tu infraestructura",
+          "fivetran": "❌ Solo su nube"
+        },
+        {
+          "feature": "Dependencia de Proveedor",
+          "dafel": "❌ Open source",
+          "fivetran": "✅ Propietario"
+        }
+      ]
+    }
+  },
+  "techSpecs": {
+    "title": "Arquitectura Empresarial que los CTOs Aprueban",
+    "subtitle": "Infraestructura lista para producción desde el día uno",
+    "performance": {
+      "title": "Benchmarks de Rendimiento",
+      "items": [
+        "Tiempo de Respuesta: <50ms promedio (vs 200ms+ de Fivetran)",
+        "Conexiones Concurrentes: 1000+ soportadas",
+        "Throughput de Datos: 10GB/min por conexión",
+        "Uptime: 99.9% SLA con auto-failover",
+        "Descubrimiento de Schema: 3x más rápido que competidores"
+      ]
+    },
+    "security": {
+      "title": "Seguridad Empresarial",
+      "items": [
+        "Encriptación AES-256-GCM (nivel bancario)",
+        "Pools de conexión auto-escalables (2-10 concurrentes)",
+        "Monitoreo Prometheus + Winston",
+        "Patrón circuit breaker para tolerancia a fallos",
+        "RBAC con logging de auditoría"
+      ]
+    },
+    "compliance": {
+      "title": "Listo para Cumplimiento",
+      "items": [
+        "Arquitectura SOC 2 Tipo II",
+        "Opciones de despliegue HIPAA",
+        "Listo para PCI DSS para datos financieros",
+        "Cumplimiento GDPR por diseño",
+        "Marcos de seguridad ISO 27001"
+      ]
+    }
+  },
+  "socialProof": {
+    "title": "Únete a 500+ Equipos que Hicieron el Cambio",
+    "subtitle": "De facturas de $60K de Fivetran a costos de infraestructura de $6K",
+    "testimonials": [
+      {
+        "quote": "Fivetran quería cobrarnos $12K/mes por nuestras necesidades crecientes de datos. Dafel procesa 10x más datos por el mismo costo de infraestructura. Además, nuestro equipo realmente entiende cómo funciona.",
+        "author": "VP Ingeniería, Unicornio FinTech",
+        "company": "FinTech Serie C",
+        "savings": "$144,000/año ahorrados"
+      },
+      {
+        "quote": "La migración desde Fivetran tomó 2 semanas con cero downtime. Procesamos los mismos volúmenes de datos con mejor rendimiento y 90% reducción de costos.",
+        "author": "CTO, Plataforma E-commerce",
+        "company": "SaaS Público",
+        "savings": "$80,000/año ahorrados"
+      }
+    ],
+    "stats": [
+      {
+        "number": "500+",
+        "label": "Equipos de ingeniería cambiaron"
+      },
+      {
+        "number": "$60K",
+        "label": "Ahorro anual promedio"
+      },
+      {
+        "number": "30min",
+        "label": "Despliegue en producción"
+      },
+      {
+        "number": "99.9%",
+        "label": "Garantía de uptime"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Antes de que llegue tu próxima factura de Fivetran...",
+    "subtitle": "Únete a los equipos que ahorran $40K+ anuales con pipelines de datos empresariales",
+    "button": "Calcula Tus Ahorros",
+    "urgency": "500+ equipos de ingeniería ya han cambiado",
+    "secondary": "Despliega Prueba Gratuita",
+    "guarantee": "Garantía de devolución de 30 días"
+  },
+  "dafel": {
+    "title": "La Última Plataforma de Datos que Tu CTO Necesitará Comprar",
+    "subtitle": "Arquitectura empresarial sin dependencia empresarial de proveedores",
+    "bookDemo": "Ver Demo Empresarial",
+    "tabs": {
+      "costEffective": {
+        "title": "90% REDUCCIÓN DE COSTOS",
+        "content": "Tus costos de infraestructura son tus costos totales. Sin cargos MAR, tarifas de conectores o picos de uso. Procesa 10x más datos por 1/10 del costo de Fivetran.",
+        "metrics": "Ahorra $40,000-$120,000 anuales"
+      },
+      "enterpriseSecurity": {
+        "title": "SEGURIDAD EMPRESARIAL",
+        "content": "Encriptación AES-256-GCM, pools auto-escalables, SLA 99.9% uptime. Seguridad bancaria que pasa auditorías SOC 2 sin implementaciones personalizadas.",
+        "metrics": "Listo SOC 2 Tipo II"
+      },
+      "unlimitedScale": {
+        "title": "ESCALABILIDAD ILIMITADA",
+        "content": "1000+ conexiones concurrentes, sync en tiempo real, transformaciones personalizadas. Posee tu pipeline de datos como posees tu código de aplicación.",
+        "metrics": "1PB+ procesado mensualmente"
+      }
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que los CTOs necesitan saber sobre cambiar desde Fivetran",
+    "items": [
+      {
+        "question": "¿Cuánto podemos ahorrar realmente?",
+        "answer": "Nuestros clientes típicamente ahorran $40,000-$120,000 anuales comparado con Fivetran Enterprise. Eso no incluye los costos ocultos de excesos MAR, tarifas de conectores y cargos de soporte. Usa nuestra calculadora ROI para tu situación específica."
+      },
+      {
+        "question": "¿Puede esto realmente reemplazar Fivetran para cargas empresariales?",
+        "answer": "Sí. Procesamos los mismos tipos de datos, soportamos las mismas bases de datos y superamos los benchmarks de rendimiento de Fivetran. Además, obtienes características por las que Fivetran cobra extra: sync tiempo real, conexiones ilimitadas y transformaciones personalizadas."
+      },
+      {
+        "question": "¿Qué tan compleja es la migración desde Fivetran?",
+        "answer": "Proporcionamos un kit completo de migración y soporte de ingeniería dedicado. La mayoría de clientes completan la migración en 2-4 semanas con cero downtime. Garantizamos rendimiento equivalente o mejor desde el día uno."
+      },
+      {
+        "question": "¿Qué hay del soporte y mantenimiento?",
+        "answer": "Nuestro soporte empresarial incluye monitoreo 24/7, ingenieros dedicados y tiempos de respuesta garantizados. Muchos clientes lo encuentran superior al soporte de Fivetran porque realmente entendemos tu despliegue."
+      },
+      {
+        "question": "¿Cuál es la trampa? Esto parece demasiado bueno para ser verdad.",
+        "answer": "No hay trampa. Somos open-source, así que no pagas por nuestro equipo de ventas, presupuesto de marketing o retornos de VC. Pagas por infraestructura y opcionalmente por soporte. La tecnología está probada por 500+ despliegues en producción."
+      }
+    ]
+  },
+  "migration": {
+    "title": "Guía de Migración Fivetran a Dafel",
+    "subtitle": "Cero downtime, mejora garantizada de rendimiento",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Evaluación",
+        "description": "Nuestros ingenieros auditan tu configuración actual de Fivetran y proporcionan un plan detallado de migración con análisis de costos.",
+        "duration": "1-2 días"
+      },
+      {
+        "number": "2",
+        "title": "Configuración Paralela",
+        "description": "Desplegamos Dafel junto a Fivetran para validar consistencia de datos y rendimiento antes del cambio.",
+        "duration": "1 semana"
+      },
+      {
+        "number": "3",
+        "title": "Cutover",
+        "description": "Cambiamos tus fuentes de datos a Dafel con cero downtime usando nuestro proceso probado de cutover.",
+        "duration": "1-2 días"
+      },
+      {
+        "number": "4",
+        "title": "Optimización",
+        "description": "Afinamos tu nueva configuración para máximo rendimiento y eficiencia de costos.",
+        "duration": "1 semana"
+      }
+    ],
+    "guarantee": "Garantizamos rendimiento equivalente o mejor desde el día uno, o completaremos la migración gratis."
+  },
+  "footer": {
+    "company": "Dafel Technologies",
+    "rights": "© 2025 Dafel Technologies. Todos los derechos reservados.",
+    "tagline": "La plataforma empresarial de datos open-source que reemplaza facturas de $50K/año de Fivetran",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies",
+    "comparison": "vs Fivetran",
+    "calculator": "Calculadora ROI",
+    "migration": "Guía de Migración"
+  },
+  "studio": {
+    "title": "Dafel Studio",
+    "subtitle": "Gestión empresarial de pipelines de datos",
+    "dragPrompt": "Construye flujos listos para producción en minutos",
+    "data": "Fuentes de Datos",
+    "process": "Transformar",
+    "ai": "Analytics",
+    "output": "Destinos",
+    "logout": "Cerrar sesión"
+  },
+  "login": {
+    "title": "Acceder a Studio Empresarial",
+    "subtitle": "Gestiona tus pipelines de datos",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "submit": "Iniciar sesión",
+    "error": "Credenciales inválidas",
+    "back": "Volver al inicio",
+    "demo": "Probar Cuenta Demo"
+  },
+  "contactModal": {
+    "title": "Calcula Tus Ahorros de Fivetran",
+    "subtitle": "Obtén un análisis ROI personalizado en 24 horas",
+    "successMessage": "¡Gracias! Te enviaremos tu análisis de costos y guía de migración en 24 horas.",
+    "form": {
+      "fullName": "Nombre completo",
+      "fullNamePlaceholder": "Juan Pérez",
+      "email": "Email de trabajo",
+      "emailPlaceholder": "juan@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de tu empresa",
+      "phone": "Teléfono (opcional)",
+      "phonePlaceholder": "+34 600 000 000",
+      "currentTool": "Herramienta de Datos Actual",
+      "currentToolOptions": {
+        "fivetran": "Fivetran",
+        "stitch": "Stitch Data",
+        "airbyte": "Airbyte Cloud",
+        "other": "Otra/Personalizada"
+      },
+      "monthlySpend": "Gasto Mensual en Herramientas de Datos",
+      "spendOptions": {
+        "under5k": "Menos de $5,000",
+        "5k-15k": "$5,000 - $15,000",
+        "15k-50k": "$15,000 - $50,000",
+        "over50k": "Más de $50,000"
+      },
+      "message": "Desafíos actuales o preguntas",
+      "messagePlaceholder": "Cuéntanos sobre los desafíos actuales de tu pipeline de datos...",
+      "submit": "Obtener Análisis ROI",
+      "submitting": "Calculando...",
+      "cancel": "Cancelar"
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El email de trabajo es requerido",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "companyRequired": "La empresa es requerida"
+    }
+  }
+}

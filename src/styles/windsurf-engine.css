@@ -1,0 +1,381 @@
+/**
+ * WINDSURF ENGINE CSS STYLES
+ * Companion stylesheet for the WindsurfEngine animation system
+ * Optimized for performance with CSS Houdini support and fallbacks
+ */
+
+/* ===== CSS CUSTOM PROPERTIES ===== */
+
+:root {
+  /* Color system */
+  --windsurf-color-1: hsl(0deg, 96%, 55%);
+  --windsurf-color-2: hsl(25deg, 100%, 50%);
+  --windsurf-color-3: hsl(60deg, 100%, 50%);
+  --windsurf-color-4: hsl(130deg, 100%, 40%);
+  --windsurf-color-5: hsl(180deg, 100%, 40%);
+  --windsurf-color-6: hsl(230deg, 100%, 45%);
+  --windsurf-color-7: hsl(260deg, 100%, 55%);
+  --windsurf-color-8: hsl(300deg, 100%, 50%);
+
+  /* Animation timing */
+  --windsurf-duration: 3s;
+  --windsurf-easing: cubic-bezier(0.4, 0, 0.6, 1);
+  
+  /* Interaction properties */
+  --mouse-proximity: 0;
+  --hover-intensity: 0;
+  --scroll-velocity: 0;
+  --scroll-direction: 1;
+  
+  /* Ripple effect */
+  --ripple-x: 50%;
+  --ripple-y: 50%;
+  
+  /* Performance optimizations */
+  --gpu-layer: translateZ(0);
+  --backface-hidden: hidden;
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --windsurf-duration: 0.01ms;
+  }
+  
+  .windsurf-rainbow,
+  .windsurf-scroll-effect,
+  .windsurf-interactive {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== RAINBOW BACKGROUND SYSTEM ===== */
+
+.windsurf-rainbow {
+  position: relative;
+  background: linear-gradient(
+    270deg,
+    var(--windsurf-color-1) 0%,
+    var(--windsurf-color-2) 14.29%,
+    var(--windsurf-color-3) 28.57%,
+    var(--windsurf-color-4) 42.86%,
+    var(--windsurf-color-5) 57.14%,
+    var(--windsurf-color-6) 71.43%,
+    var(--windsurf-color-7) 85.71%,
+    var(--windsurf-color-8) 100%
+  );
+  background-size: 400% 400%;
+  animation: windsurfGradientShift var(--windsurf-duration) var(--windsurf-easing) infinite;
+  
+  /* GPU acceleration */
+  transform: var(--gpu-layer);
+  backface-visibility: var(--backface-hidden);
+  will-change: background-position, transform;
+}
+
+@keyframes windsurfGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== RAINBOW TEXT EFFECT ===== */
+
+.windsurf-rainbow-text {
+  background: linear-gradient(
+    90deg,
+    var(--windsurf-color-1),
+    var(--windsurf-color-2),
+    var(--windsurf-color-3),
+    var(--windsurf-color-4),
+    var(--windsurf-color-5),
+    var(--windsurf-color-6),
+    var(--windsurf-color-7),
+    var(--windsurf-color-8)
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: windsurfTextShift var(--windsurf-duration) linear infinite;
+}
+
+@keyframes windsurfTextShift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ===== RAINBOW BORDER EFFECTS ===== */
+
+.windsurf-rainbow-border {
+  position: relative;
+  background: inherit;
+}
+
+.windsurf-rainbow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    var(--windsurf-color-1),
+    var(--windsurf-color-2),
+    var(--windsurf-color-3),
+    var(--windsurf-color-4),
+    var(--windsurf-color-5),
+    var(--windsurf-color-6),
+    var(--windsurf-color-7),
+    var(--windsurf-color-8)
+  );
+  background-size: 400% 400%;
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  animation: windsurfBorderShift var(--windsurf-duration) linear infinite;
+}
+
+@keyframes windsurfBorderShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* ===== SCROLL-TRIGGERED EFFECTS ===== */
+
+.windsurf-scroll-effect {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: 
+    opacity 0.6s var(--windsurf-easing),
+    transform 0.6s var(--windsurf-easing);
+}
+
+.windsurf-scroll-effect.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.windsurf-scroll-parallax {
+  transform: 
+    translateY(calc(var(--scroll-velocity) * var(--scroll-direction) * 20px))
+    scale(calc(1 + var(--scroll-velocity) * 0.05));
+  filter: 
+    hue-rotate(calc(var(--scroll-velocity) * var(--scroll-direction) * 30deg))
+    brightness(calc(1 + var(--scroll-velocity) * 0.1));
+  transition: all 0.3s ease-out;
+}
+
+/* ===== INTERACTION EFFECTS ===== */
+
+.windsurf-interactive {
+  transition: all 0.3s var(--windsurf-easing);
+  cursor: pointer;
+}
+
+.windsurf-interactive:hover {
+  transform: 
+    scale(calc(1 + var(--hover-intensity) * 0.05))
+    translateZ(calc(var(--hover-intensity) * 10px));
+  filter: 
+    brightness(calc(1 + var(--hover-intensity) * 0.1))
+    saturate(calc(1 + var(--hover-intensity) * 0.2));
+}
+
+/* Mouse proximity effects */
+.windsurf-mouse-reactive {
+  filter: 
+    hue-rotate(calc(var(--mouse-proximity) * 60deg))
+    brightness(calc(1 + var(--mouse-proximity) * 0.2))
+    saturate(calc(1 + var(--mouse-proximity) * 0.3));
+  transform: 
+    scale(calc(1 + var(--mouse-proximity) * 0.03))
+    perspective(1000px)
+    rotateX(calc(var(--mouse-proximity) * 5deg))
+    rotateY(calc(var(--mouse-proximity) * 5deg));
+  transition: all 0.3s ease-out;
+}
+
+/* ===== RIPPLE EFFECT ===== */
+
+.windsurf-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.windsurf-ripple::after {
+  content: '';
+  position: absolute;
+  top: var(--ripple-y);
+  left: var(--ripple-x);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 
+    width 0.6s ease-out,
+    height 0.6s ease-out,
+    opacity 0.6s ease-out;
+}
+
+.windsurf-ripple.windsurf-ripple-active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+/* ===== PERFORMANCE OPTIMIZED VARIANTS ===== */
+
+.windsurf-gpu-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity, filter;
+}
+
+.windsurf-composite-layer {
+  position: relative;
+  isolation: isolate;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .windsurf-rainbow {
+    animation-duration: calc(var(--windsurf-duration) * 1.5);
+  }
+  
+  .windsurf-interactive:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* ===== HIGH CONTRAST MODE SUPPORT ===== */
+
+@media (prefers-contrast: high) {
+  .windsurf-rainbow-text {
+    -webkit-text-fill-color: unset;
+    background: none;
+    color: currentColor;
+  }
+  
+  .windsurf-rainbow {
+    background: linear-gradient(
+      90deg,
+      #000 0%,
+      #333 25%,
+      #666 50%,
+      #999 75%,
+      #ccc 100%
+    );
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+  .windsurf-rainbow,
+  .windsurf-rainbow-text,
+  .windsurf-rainbow-border {
+    background: none !important;
+    animation: none !important;
+    filter: none !important;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.windsurf-pause-animations {
+  animation-play-state: paused !important;
+}
+
+.windsurf-disable-interactions {
+  pointer-events: none;
+  user-select: none;
+}
+
+.windsurf-smooth-edges {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== CSS HOUDINI FALLBACKS ===== */
+
+@supports not (background: paint(rainbow)) {
+  /* Fallback styles for browsers without Houdini support */
+  .windsurf-rainbow-advanced {
+    background: linear-gradient(
+      270deg,
+      var(--windsurf-color-1),
+      var(--windsurf-color-2),
+      var(--windsurf-color-3),
+      var(--windsurf-color-4),
+      var(--windsurf-color-5),
+      var(--windsurf-color-6),
+      var(--windsurf-color-7),
+      var(--windsurf-color-8)
+    );
+  }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --windsurf-color-1: hsl(0deg, 80%, 60%);
+    --windsurf-color-2: hsl(25deg, 85%, 55%);
+    --windsurf-color-3: hsl(60deg, 85%, 55%);
+    --windsurf-color-4: hsl(130deg, 85%, 45%);
+    --windsurf-color-5: hsl(180deg, 85%, 45%);
+    --windsurf-color-6: hsl(230deg, 85%, 50%);
+    --windsurf-color-7: hsl(260deg, 85%, 60%);
+    --windsurf-color-8: hsl(300deg, 85%, 55%);
+  }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+.windsurf-a11y-focus:focus-visible {
+  outline: 2px solid var(--windsurf-color-4);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Screen reader only content */
+.windsurf-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

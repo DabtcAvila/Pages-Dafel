@@ -1,0 +1,757 @@
+/**
+ * WINDSURF-STYLE RAINBOW ANIMATION SYSTEM
+ * Advanced CSS Gradient & Animation Framework
+ * Optimized for Performance & Accessibility
+ * 
+ * Features:
+ * - 8-gradient SVG-inspired system
+ * - SK Color System integration (aqua, sea, dusk, blaze)
+ * - GPU-accelerated animations
+ * - Houdini API integration
+ * - Reduced motion support
+ * - Multi-layer gradient movements
+ */
+
+/* === CSS CUSTOM PROPERTIES SYSTEM === */
+:root {
+  /* SK Color System - Core Palette */
+  --sk-aqua: hsl(180, 65%, 67%);        /* #85d8ce - Primary aqua */
+  --sk-sea: hsl(178, 59%, 40%);         /* #29a39f - Deep sea */
+  --sk-dusk: hsl(307, 91%, 80%);        /* #fb9ce5 - Vibrant dusk */
+  --sk-blaze: hsl(38, 100%, 75%);       /* #ffcb80 - Warm blaze */
+  
+  /* Extended SK Palette for Richer Gradients */
+  --sk-aqua-light: hsl(180, 65%, 85%);  /* Lighter aqua */
+  --sk-aqua-dark: hsl(180, 65%, 45%);   /* Darker aqua */
+  --sk-sea-light: hsl(178, 59%, 60%);   /* Lighter sea */
+  --sk-sea-dark: hsl(178, 59%, 25%);    /* Darker sea */
+  --sk-dusk-light: hsl(307, 91%, 90%);  /* Lighter dusk */
+  --sk-dusk-dark: hsl(307, 91%, 65%);   /* Darker dusk */
+  --sk-blaze-light: hsl(38, 100%, 85%); /* Lighter blaze */
+  --sk-blaze-dark: hsl(38, 100%, 60%);  /* Darker blaze */
+  
+  /* Dynamic Rainbow Colors (Windsurf-inspired) */
+  --rainbow-1: var(--sk-aqua);
+  --rainbow-2: var(--sk-sea);
+  --rainbow-3: var(--sk-dusk);
+  --rainbow-4: var(--sk-blaze);
+  --rainbow-5: hsl(260, 100%, 70%);     /* Violet complement */
+  --rainbow-6: hsl(320, 100%, 65%);     /* Magenta complement */
+  --rainbow-7: hsl(45, 100%, 70%);      /* Gold complement */
+  --rainbow-8: hsl(150, 100%, 50%);     /* Emerald complement */
+  
+  /* Animation Properties */
+  --rainbow-duration-fast: 8s;
+  --rainbow-duration-medium: 15s;
+  --rainbow-duration-slow: 25s;
+  --rainbow-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --rainbow-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Performance Optimizations */
+  --gpu-acceleration: translateZ(0);
+  --backface-visibility: hidden;
+  --will-change: transform, background-position, filter;
+}
+
+/* === HOUDINI CSS PROPERTIES REGISTRATION === */
+@property --rainbow-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(180, 65%, 67%);
+}
+
+@property --rainbow-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(178, 59%, 40%);
+}
+
+@property --rainbow-3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(307, 91%, 80%);
+}
+
+@property --rainbow-4 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(38, 100%, 75%);
+}
+
+@property --rainbow-5 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(260, 100%, 70%);
+}
+
+@property --rainbow-6 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(320, 100%, 65%);
+}
+
+@property --rainbow-7 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(45, 100%, 70%);
+}
+
+@property --rainbow-8 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(150, 100%, 50%);
+}
+
+/* === BASE ANIMATION CLASSES === */
+
+/* Main Rainbow Background System */
+.windsurf-rainbow {
+  position: relative;
+  background: linear-gradient(135deg, #f5f4f0 0%, #ffffff 100%);
+  overflow: hidden;
+  will-change: var(--will-change);
+  transform: var(--gpu-acceleration);
+  backface-visibility: var(--backface-visibility);
+}
+
+/* 8-Layer Gradient System (Windsurf Recreation) */
+.windsurf-gradient-system {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Layer 1 - Primary SK Aqua */
+    radial-gradient(
+      circle at 15% 85%,
+      var(--rainbow-1) 0%,
+      transparent 45%
+    ),
+    /* Layer 2 - SK Sea */
+    radial-gradient(
+      circle at 85% 15%,
+      var(--rainbow-2) 0%,
+      transparent 45%
+    ),
+    /* Layer 3 - SK Dusk */
+    radial-gradient(
+      circle at 45% 55%,
+      var(--rainbow-3) 0%,
+      transparent 50%
+    ),
+    /* Layer 4 - SK Blaze */
+    radial-gradient(
+      circle at 75% 75%,
+      var(--rainbow-4) 0%,
+      transparent 40%
+    ),
+    /* Layer 5 - Violet Complement */
+    radial-gradient(
+      circle at 25% 25%,
+      var(--rainbow-5) 0%,
+      transparent 35%
+    ),
+    /* Layer 6 - Magenta Complement */
+    radial-gradient(
+      circle at 65% 35%,
+      var(--rainbow-6) 0%,
+      transparent 38%
+    ),
+    /* Layer 7 - Gold Complement */
+    radial-gradient(
+      circle at 35% 65%,
+      var(--rainbow-7) 0%,
+      transparent 42%
+    ),
+    /* Layer 8 - Emerald Complement */
+    radial-gradient(
+      circle at 90% 90%,
+      var(--rainbow-8) 0%,
+      transparent 48%
+    );
+  
+  /* Dynamic background sizes for organic movement */
+  background-size: 
+    450% 450%,  /* Layer 1 */
+    380% 380%,  /* Layer 2 */
+    520% 520%,  /* Layer 3 */
+    420% 420%,  /* Layer 4 */
+    350% 350%,  /* Layer 5 */
+    480% 480%,  /* Layer 6 */
+    390% 390%,  /* Layer 7 */
+    550% 550%;  /* Layer 8 */
+  
+  /* Multi-layered animation system */
+  animation: 
+    windsurf-gradient-flow-1 var(--rainbow-duration-fast) var(--rainbow-easing) infinite,
+    windsurf-gradient-flow-2 var(--rainbow-duration-medium) var(--rainbow-easing) infinite reverse,
+    windsurf-gradient-flow-3 var(--rainbow-duration-slow) var(--rainbow-easing) infinite;
+  
+  /* Opacity transitions for smoothness */
+  opacity: 0.8;
+  transition: opacity 2s ease-in-out;
+}
+
+/* === ADVANCED KEYFRAME ANIMATIONS === */
+
+/* Primary Gradient Flow - Complex 8-point movement */
+@keyframes windsurf-gradient-flow-1 {
+  0% { 
+    background-position: 
+      0% 50%,    /* Layer 1 */
+      100% 50%,  /* Layer 2 */
+      50% 0%,    /* Layer 3 */
+      50% 100%,  /* Layer 4 */
+      25% 25%,   /* Layer 5 */
+      75% 75%,   /* Layer 6 */
+      25% 75%,   /* Layer 7 */
+      75% 25%;   /* Layer 8 */
+  }
+  12.5% { 
+    background-position: 
+      25% 25%,   /* Layer 1 rotates */
+      75% 25%,   /* Layer 2 shifts */
+      75% 25%,   /* Layer 3 moves */
+      25% 75%,   /* Layer 4 rotates */
+      50% 0%,    /* Layer 5 shifts up */
+      50% 100%,  /* Layer 6 shifts down */
+      0% 50%,    /* Layer 7 moves left */
+      100% 50%;  /* Layer 8 moves right */
+  }
+  25% { 
+    background-position: 
+      50% 0%,    /* Layer 1 moves up */
+      50% 100%,  /* Layer 2 moves down */
+      100% 50%,  /* Layer 3 moves right */
+      0% 50%,    /* Layer 4 moves left */
+      75% 25%,   /* Layer 5 diagonal */
+      25% 75%,   /* Layer 6 diagonal */
+      75% 75%,   /* Layer 7 corner */
+      25% 25%;   /* Layer 8 corner */
+  }
+  37.5% { 
+    background-position: 
+      75% 25%,   /* Layer 1 diagonal */
+      25% 75%,   /* Layer 2 diagonal */
+      25% 75%,   /* Layer 3 diagonal */
+      75% 25%,   /* Layer 4 diagonal */
+      100% 50%,  /* Layer 5 right */
+      0% 50%,    /* Layer 6 left */
+      50% 0%,    /* Layer 7 up */
+      50% 100%;  /* Layer 8 down */
+  }
+  50% { 
+    background-position: 
+      100% 50%,  /* Layer 1 right */
+      0% 50%,    /* Layer 2 left */
+      50% 100%,  /* Layer 3 down */
+      50% 0%,    /* Layer 4 up */
+      75% 75%,   /* Layer 5 corner */
+      25% 25%,   /* Layer 6 corner */
+      100% 50%,  /* Layer 7 right */
+      0% 50%;    /* Layer 8 left */
+  }
+  62.5% { 
+    background-position: 
+      75% 75%,   /* Layer 1 corner */
+      25% 25%,   /* Layer 2 corner */
+      0% 50%,    /* Layer 3 left */
+      100% 50%,  /* Layer 4 right */
+      50% 100%,  /* Layer 5 down */
+      50% 0%,    /* Layer 6 up */
+      25% 25%,   /* Layer 7 corner */
+      75% 75%;   /* Layer 8 corner */
+  }
+  75% { 
+    background-position: 
+      50% 100%,  /* Layer 1 down */
+      50% 0%,    /* Layer 2 up */
+      25% 25%,   /* Layer 3 corner */
+      75% 75%,   /* Layer 4 corner */
+      0% 50%,    /* Layer 5 left */
+      100% 50%,  /* Layer 6 right */
+      75% 25%,   /* Layer 7 diagonal */
+      25% 75%;   /* Layer 8 diagonal */
+  }
+  87.5% { 
+    background-position: 
+      25% 75%,   /* Layer 1 diagonal */
+      75% 25%,   /* Layer 2 diagonal */
+      75% 75%,   /* Layer 3 corner */
+      25% 25%,   /* Layer 4 corner */
+      25% 75%,   /* Layer 5 diagonal */
+      75% 25%,   /* Layer 6 diagonal */
+      50% 100%,  /* Layer 7 down */
+      50% 0%;    /* Layer 8 up */
+  }
+  100% { 
+    background-position: 
+      0% 50%,    /* Layer 1 back to start */
+      100% 50%,  /* Layer 2 back to start */
+      50% 0%,    /* Layer 3 back to start */
+      50% 100%,  /* Layer 4 back to start */
+      25% 25%,   /* Layer 5 back to start */
+      75% 75%,   /* Layer 6 back to start */
+      25% 75%,   /* Layer 7 back to start */
+      75% 25%;   /* Layer 8 back to start */
+  }
+}
+
+/* Secondary Flow - Rotation and Scale */
+@keyframes windsurf-gradient-flow-2 {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1) translateZ(0);
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+  }
+  25% { 
+    transform: rotate(90deg) scale(1.05) translateZ(0);
+    filter: hue-rotate(90deg) saturate(1.1) brightness(1.05);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.1) translateZ(0);
+    filter: hue-rotate(180deg) saturate(1.2) brightness(1.1);
+  }
+  75% { 
+    transform: rotate(270deg) scale(1.05) translateZ(0);
+    filter: hue-rotate(270deg) saturate(1.1) brightness(1.05);
+  }
+}
+
+/* Tertiary Flow - Color and Filter Effects */
+@keyframes windsurf-gradient-flow-3 {
+  0%, 100% { 
+    filter: hue-rotate(0deg) saturate(1) contrast(1) brightness(1);
+  }
+  16.67% { 
+    filter: hue-rotate(60deg) saturate(1.1) contrast(1.05) brightness(1.02);
+  }
+  33.33% { 
+    filter: hue-rotate(120deg) saturate(1.2) contrast(1.1) brightness(1.05);
+  }
+  50% { 
+    filter: hue-rotate(180deg) saturate(1.3) contrast(1.15) brightness(1.08);
+  }
+  66.67% { 
+    filter: hue-rotate(240deg) saturate(1.2) contrast(1.1) brightness(1.05);
+  }
+  83.33% { 
+    filter: hue-rotate(300deg) saturate(1.1) contrast(1.05) brightness(1.02);
+  }
+}
+
+/* === UTILITY ANIMATION CLASSES === */
+
+/* Fade In Variations */
+.windsurf-fade-in {
+  opacity: 0;
+  animation: windsurf-fade-in 1.5s var(--rainbow-easing) forwards;
+}
+
+.windsurf-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: windsurf-fade-in-up 1.5s var(--rainbow-easing) forwards;
+}
+
+.windsurf-fade-in-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: windsurf-fade-in-scale 1.5s var(--rainbow-easing-bounce) forwards;
+}
+
+/* Infinite Scroll Effect */
+.windsurf-infinite-scroll {
+  background: linear-gradient(
+    90deg,
+    var(--sk-aqua) 0%,
+    var(--sk-sea) 25%,
+    var(--sk-dusk) 50%,
+    var(--sk-blaze) 75%,
+    var(--sk-aqua) 100%
+  );
+  background-size: 400% 100%;
+  animation: windsurf-infinite-scroll 8s linear infinite;
+}
+
+/* Rotation Effects */
+.windsurf-rotate-slow {
+  animation: windsurf-rotate-slow 20s linear infinite;
+}
+
+.windsurf-rotate-pulse {
+  animation: windsurf-rotate-pulse 4s ease-in-out infinite;
+}
+
+/* Pulse Variations */
+.windsurf-pulse {
+  animation: windsurf-pulse 2s ease-in-out infinite;
+}
+
+.windsurf-pulse-glow {
+  animation: windsurf-pulse-glow 3s ease-in-out infinite;
+}
+
+/* === KEYFRAMES FOR UTILITY CLASSES === */
+
+@keyframes windsurf-fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes windsurf-fade-in-up {
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes windsurf-fade-in-scale {
+  to { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+@keyframes windsurf-infinite-scroll {
+  0% { background-position: 0% 50%; }
+  100% { background-position: -400% 50%; }
+}
+
+@keyframes windsurf-rotate-slow {
+  0% { transform: rotate(0deg) translateZ(0); }
+  100% { transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes windsurf-rotate-pulse {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1) translateZ(0);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.05) translateZ(0);
+  }
+}
+
+@keyframes windsurf-pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02) translateZ(0);
+  }
+}
+
+@keyframes windsurf-pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    filter: brightness(1) drop-shadow(0 0 0 transparent);
+  }
+  50% { 
+    opacity: 0.9;
+    filter: brightness(1.1) drop-shadow(0 0 20px var(--sk-aqua));
+  }
+}
+
+/* === RESPONSIVE ADAPTATIONS === */
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .windsurf-gradient-system {
+    /* Reduce complexity on mobile for performance */
+    background-size: 
+      300% 300%,  /* Smaller gradients */
+      250% 250%,
+      350% 350%,
+      280% 280%,
+      200% 200%,
+      320% 320%,
+      260% 260%,
+      380% 380%;
+    
+    /* Faster animations on mobile */
+    animation-duration: 
+      calc(var(--rainbow-duration-fast) * 0.7),
+      calc(var(--rainbow-duration-medium) * 0.7),
+      calc(var(--rainbow-duration-slow) * 0.7);
+  }
+  
+  /* Reduce GPU load on mobile */
+  .windsurf-rainbow {
+    will-change: auto;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .windsurf-gradient-system {
+    /* Simplified gradients for touch devices */
+    opacity: 0.6;
+  }
+  
+  /* Disable complex transforms on touch */
+  @keyframes windsurf-gradient-flow-2 {
+    0%, 100% { 
+      transform: translateZ(0);
+      filter: hue-rotate(0deg);
+    }
+    50% { 
+      transform: translateZ(0);
+      filter: hue-rotate(180deg);
+    }
+  }
+}
+
+/* High Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations for accessibility */
+  .windsurf-gradient-system,
+  .windsurf-fade-in,
+  .windsurf-fade-in-up,
+  .windsurf-fade-in-scale,
+  .windsurf-infinite-scroll,
+  .windsurf-rotate-slow,
+  .windsurf-rotate-pulse,
+  .windsurf-pulse,
+  .windsurf-pulse-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Static fallback styles */
+  .windsurf-fade-in,
+  .windsurf-fade-in-up,
+  .windsurf-fade-in-scale {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .windsurf-gradient-system {
+    /* Static gradient for reduced motion */
+    background: radial-gradient(
+      circle at center,
+      var(--sk-aqua) 0%,
+      var(--sk-sea) 25%,
+      var(--sk-dusk) 50%,
+      var(--sk-blaze) 75%,
+      transparent 100%
+    );
+    opacity: 0.3;
+  }
+}
+
+/* Dark Mode Adaptations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Adjust SK colors for dark mode */
+    --sk-aqua: hsl(180, 55%, 55%);
+    --sk-sea: hsl(178, 49%, 35%);
+    --sk-dusk: hsl(307, 81%, 70%);
+    --sk-blaze: hsl(38, 90%, 65%);
+  }
+  
+  .windsurf-gradient-system {
+    opacity: 0.4; /* Reduce intensity in dark mode */
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    /* Enhanced contrast colors */
+    --sk-aqua: hsl(180, 100%, 50%);
+    --sk-sea: hsl(178, 100%, 25%);
+    --sk-dusk: hsl(307, 100%, 75%);
+    --sk-blaze: hsl(38, 100%, 60%);
+  }
+  
+  .windsurf-gradient-system {
+    opacity: 1;
+    filter: contrast(1.5) saturate(1.5);
+  }
+}
+
+/* === PERFORMANCE ENHANCEMENT LAYER === */
+
+/* GPU Acceleration for all animated elements */
+.windsurf-rainbow,
+.windsurf-gradient-system,
+.windsurf-fade-in,
+.windsurf-fade-in-up,
+.windsurf-fade-in-scale,
+.windsurf-infinite-scroll,
+.windsurf-rotate-slow,
+.windsurf-rotate-pulse,
+.windsurf-pulse,
+.windsurf-pulse-glow {
+  will-change: var(--will-change);
+  transform: var(--gpu-acceleration);
+  backface-visibility: var(--backface-visibility);
+}
+
+/* Intersection Observer Ready Classes */
+.windsurf-animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px) translateZ(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.windsurf-animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+/* === WINDSURF COMPONENT VARIATIONS === */
+
+/* Hero Section Variant */
+.windsurf-hero-background {
+  @extend .windsurf-rainbow;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.windsurf-hero-background .windsurf-gradient-system {
+  opacity: 0.6;
+}
+
+/* Card Hover Effects */
+.windsurf-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.windsurf-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    var(--sk-aqua) 0%,
+    var(--sk-sea) 33%,
+    var(--sk-dusk) 66%,
+    var(--sk-blaze) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.windsurf-card:hover::before {
+  opacity: 0.1;
+}
+
+.windsurf-card:hover {
+  transform: translateY(-8px) translateZ(0);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Variations */
+.windsurf-button {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--sk-sea) 0%,
+    var(--sk-aqua) 100%
+  );
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.windsurf-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.windsurf-button:hover::before {
+  left: 100%;
+}
+
+.windsurf-button:hover {
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 10px 25px rgba(133, 216, 206, 0.3);
+}
+
+/* Text Gradient Effects */
+.windsurf-text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--sk-aqua) 0%,
+    var(--sk-sea) 25%,
+    var(--sk-dusk) 50%,
+    var(--sk-blaze) 75%,
+    var(--sk-aqua) 100%
+  );
+  background-size: 400% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: windsurf-infinite-scroll 6s linear infinite;
+}
+
+/* Loading States */
+.windsurf-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.windsurf-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sk-aqua),
+    transparent
+  );
+  animation: windsurf-loading-shimmer 2s infinite;
+}
+
+@keyframes windsurf-loading-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* === DEBUG AND DEVELOPMENT UTILITIES === */
+
+/* Visual debugging for gradient positions */
+.windsurf-debug-gradients .windsurf-gradient-system {
+  background-blend-mode: difference;
+  opacity: 1;
+}
+
+/* Performance monitoring class */
+.windsurf-performance-monitor {
+  /* This class can be used for performance tracking */
+  animation-play-state: paused;
+}
+
+.windsurf-performance-monitor.active {
+  animation-play-state: running;
+}

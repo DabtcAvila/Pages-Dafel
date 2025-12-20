@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "company": "Dafel Technologies",
+    "scheduleConsultation": "Programar Asesoría",
+    "login": "Iniciar Sesión"
+  },
+  "hero": {
+    "title": "Servicios Actuariales.",
+    "titleHighlight": "Precisión Absoluta.",
+    "description": "Consultoria actuarial especializada en valuación de obligaciones laborales. Cumplimiento total con NIF D-3, IFRS-19 y USGAAP para su empresa.",
+    "exploreButton": "Explorar Soluciones",
+    "demoButton": "Solicitar Demo"
+  },
+  "framework": {
+    "titleLine1": "La Fundición",
+    "titleLine2": "Ontológica",
+    "subtitle": "Activa el poder de tus datos y análisis.",
+    "ctaButton": "Comenzar con la Ontología",
+    "panelBrand": "Foundry",
+    "panelTitle": "Núcleo Ontológico",
+    "layers": {
+      "semantic": {
+        "title": "Semántico",
+        "features": [
+          "Objetos y Enlaces Dinámicos",
+          "Propiedades Multi-Modales",
+          "Primitivos Ontológicos"
+        ]
+      },
+      "kinetic": {
+        "title": "Cinético",
+        "features": [
+          "Acciones y Funciones Impulsadas por IA",
+          "Minería de Procesos y Automatización",
+          "Orquestación de Acciones",
+          "Monitoreo en Tiempo Real"
+        ]
+      },
+      "dynamic": {
+        "title": "Dinámico",
+        "features": [
+          "Decisiones Potenciadas por IA",
+          "Simulaciones Multi-Paso",
+          "Captura y Aprendizaje de Decisiones"
+        ]
+      }
+    }
+  },
+  "services": {
+    "title": "Servicios Especializados",
+    "subtitle": "Consultoría actuarial integral para el cumplimiento de obligaciones laborales",
+    "aiDecisions": {
+      "title": "Prima de Antigüedad",
+      "description": "Valuación actuarial de obligaciones por prima de antigüedad conforme a la Ley Federal del Trabajo y NIF D-3."
+    },
+    "automation": {
+      "title": "Indemnizaciones",
+      "description": "Cálculo de pasivos por indemnizaciones legales y planes de beneficios definidos bajo estándares internacionales."
+    },
+    "predictive": {
+      "title": "Planes de Pensiones",
+      "description": "Diseño y valuación de planes de jubilación, análisis de riesgos actuariales y proyecciones demográficas."
+    },
+    "learnMore": "Conocer más →"
+  },
+  "cta": {
+    "title": "Comienza tu transformación digital",
+    "subtitle": "Únete a las empresas líderes que confían en nuestra tecnología",
+    "button": "Programar Consulta"
+  },
+  "dafel": {
+    "title": "Dafel",
+    "subtitle": "La Plataforma de Datos e IA que impulsa el futuro de tu empresa.",
+    "bookDemo": "Comenzar demo",
+    "tabs": {
+      "dataPlatform": {
+        "title": "PLATAFORMA DE DATOS",
+        "content": "Consolida todos los datos de tu empresa en un Data Lakehouse dedicado a tu operación. Nuestros conectores garantizan calidad, linaje y gobernanza de datos en cuestión de minutos."
+      },
+      "aiPlatform": {
+        "title": "PLATAFORMA DE IA",
+        "content": "Desde IA Generativo hasta múltiples clases de modelos de Machine Learning, Dafel es IA adaptado a tus operaciones."
+      },
+      "aiApplications": {
+        "title": "APLICATIVOS INTELIGENTES",
+        "content": "Accede fácilmente a tus datos con los mejores modelos de Machine Learning y IA Generativa, adaptados a tu operación para ganar control y velocidad en tus operaciones."
+      }
+    }
+  },
+  "footer": {
+    "company": "Dafel Technologies",
+    "rights": "© 2025 Dafel Technologies. Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies"
+  },
+  "studio": {
+    "title": "Dafel Studio",
+    "dragPrompt": "Arrastra componentes para construir tu flujo",
+    "data": "Datos",
+    "process": "Proceso",
+    "ai": "IA",
+    "output": "Salida",
+    "logout": "Cerrar sesión"
+  },
+  "login": {
+    "title": "Acceder al Studio",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "submit": "Iniciar sesión",
+    "error": "Credenciales inválidas",
+    "back": "Volver al inicio"
+  },
+  "contactModal": {
+    "title": "Programar Consulta",
+    "subtitle": "Nos pondremos en contacto en menos de 24 horas",
+    "successMessage": "¡Gracias! Hemos recibido tu solicitud y nos pondremos en contacto pronto.",
+    "form": {
+      "fullName": "Nombre completo",
+      "fullNamePlaceholder": "Juan Pérez",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "juan@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de tu empresa",
+      "phone": "Teléfono (opcional)",
+      "phonePlaceholder": "+34 600 000 000",
+      "preferredTime": "Preferencia de horario (opcional)",
+      "timeOptions": {
+        "flexible": "Flexible",
+        "morning": "Mañana (9:00 - 13:00)",
+        "afternoon": "Tarde (14:00 - 18:00)"
+      },
+      "message": "Mensaje o comentarios (opcional)",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto o necesidades...",
+      "submit": "Enviar solicitud",
+      "submitting": "Enviando...",
+      "cancel": "Cancelar"
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El correo electrónico es requerido",
+      "emailInvalid": "Por favor ingresa un correo electrónico válido",
+      "companyRequired": "La empresa es requerida"
+    }
+  }
+}
