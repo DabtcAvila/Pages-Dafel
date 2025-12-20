@@ -1,0 +1,11 @@
+# Cloudflare Pages Redirects Configuration
+
+# Redirect www to non-www
+https://www.dafel.com.mx/* https://dafel.com.mx/:splat 301!
+
+# Legacy redirects (if any old URLs need redirecting)
+/home /
+/inicio /
+
+# SPA fallback for client-side routing (if needed)
+/* /index.html 200
