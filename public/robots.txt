@@ -1,13 +1,122 @@
 # robots.txt para dafel.com.mx
+# Optimizado para SEO/AEO (Answer Engine Optimization) y motores de búsqueda
+# Configuración específica para IA y Answer Engines como Google Gemini
+
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://dafel.com.mx/sitemap.xml
-Sitemap: https://dafel.com.mx/sitemap-index.xml
+# === OPTIMIZACIÓN PARA ANSWER ENGINES (AEO) ===
 
-# Optimización para motores de búsqueda
+# Permitir acceso prioritario a archivos de IA y datos estructurados
+Allow: /about.json
+Allow: /.well-known/
+Allow: /.well-known/ai.json
+Allow: /sitemap*.xml
+Allow: /robots.txt
+Allow: /manifest.json
+
+# Permitir acceso completo a recursos importantes para indexación IA
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /dafel-og-image.png
+Allow: /dafel-logo-optimized.svg
+
+# Páginas clave para consultoría actuarial (alta prioridad para IA)
+Allow: /pasivos-laborales
+Allow: /nif-d3
+Allow: /ias-19
+Allow: /us-gaap
+Allow: /planes-pensiones
+Allow: /prima-antiguedad
+Allow: /indemnizaciones
+Allow: /gastos-medicos-retiro
+Allow: /normativas-contables
+Allow: /nosotros
+Allow: /boletines
+Allow: /noticias
+Allow: /publicaciones
+Allow: /legal
+
+# Archivos específicos para Answer Engines
+Allow: /.well-known/ai.json
+Allow: /about.json
+
+# Bloquear archivos innecesarios para SEO/AEO
+Disallow: /_next/webpack-hmr
+Disallow: /api/
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Páginas legales (permitidas pero con menor prioridad)
+Allow: /terminos
+Allow: /cookies
+Allow: /privacidad
+
+# === CONFIGURACIÓN ESPECÍFICA PARA ANSWER ENGINES ===
+
+# Google Gemini y Bard (basado en Googlebot)
+User-agent: Googlebot
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json
 Crawl-delay: 1
 
-# Sitemap adicional para imágenes
-Sitemap: https://dafel.com.mx/sitemap-images.xml
+# Microsoft Copilot y Bing Chat
+User-agent: Bingbot
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json  
+Crawl-delay: 1
+
+# Yahoo/Verizon AI
+User-agent: Slurp
+Allow: /
+Allow: /about.json
+Crawl-delay: 2
+
+# OpenAI GPT Web Crawler
+User-agent: GPTBot
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json
+Crawl-delay: 1
+
+# Anthropic Claude Web Crawler
+User-agent: Claude-Web
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json
+Crawl-delay: 1
+
+# Other AI and Answer Engine crawlers
+User-agent: CCBot
+Allow: /
+Allow: /about.json
+Crawl-delay: 2
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /about.json
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /about.json
+Crawl-delay: 1
+
+# === SITEMAPS Y METADATOS ===
+
+# Sitemap principal
+Sitemap: https://dafel.com.mx/sitemap.xml
+
+# Información del host y datos estructurados
+Host: dafel.com.mx
+
+# === AEO METADATA ===
+# Información adicional para Answer Engines sobre el sitio
+# Business-type: Professional Consulting Services
+# Industry: Actuarial Consulting
+# Geographic-focus: Mexico
+# Primary-services: NIF D-3, IFRS-19, US GAAP, Pasivos Laborales
+# Target-queries: consultoría actuarial México, asesoría NIF D-3, pasivos laborales

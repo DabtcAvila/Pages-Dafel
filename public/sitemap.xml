@@ -1,42 +1,370 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
   <!-- Página principal -->
   <url>
     <loc>https://dafel.com.mx/</loc>
-    <lastmod>2025-12-20</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dafel.com.mx/dafel-logo-optimized.svg</image:loc>
+      <image:title>Dafel Technologies - Consultoría Actuarial</image:title>
+      <image:caption>Logo de Dafel Technologies, especialistas en consultoría actuarial</image:caption>
+    </image:image>
   </url>
+
+  <!-- === SERVICIOS PRINCIPALES === -->
   
-  <!-- Servicios -->
+  <!-- NIF D-3 -->
   <url>
-    <loc>https://dafel.com.mx/#servicios</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://dafel.com.mx/nif-d3</loc>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Nosotros -->
+
+  <!-- IAS-19 (no IFRS-19) -->
   <url>
-    <loc>https://dafel.com.mx/#nosotros</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://dafel.com.mx/ias-19</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- US GAAP -->
+  <url>
+    <loc>https://dafel.com.mx/us-gaap</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Normativas Contables -->
+  <url>
+    <loc>https://dafel.com.mx/normativas-contables</loc>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Contacto -->
+
+  <!-- === BENEFICIOS Y SERVICIOS === -->
+
+  <!-- Pasivos Laborales -->
   <url>
-    <loc>https://dafel.com.mx/#contacto</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://dafel.com.mx/pasivos-laborales</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://dafel.com.mx/dafel-og-image.png</image:loc>
+      <image:title>Pasivos Laborales México - Valuación Actuarial DAFEL</image:title>
+      <image:caption>Especialistas en valuación actuarial de pasivos laborales en México</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Prima de Antigüedad -->
+  <url>
+    <loc>https://dafel.com.mx/prima-antiguedad</loc>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- Boletines -->
+
+  <!-- Indemnizaciones -->
   <url>
-    <loc>https://dafel.com.mx/#boletines</loc>
-    <lastmod>2025-12-20</lastmod>
+    <loc>https://dafel.com.mx/indemnizaciones</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Planes de Pensiones -->
+  <url>
+    <loc>https://dafel.com.mx/planes-pensiones</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gastos Médicos de Retiro -->
+  <url>
+    <loc>https://dafel.com.mx/gastos-medicos-retiro</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- === PÁGINAS INSTITUCIONALES === -->
+
+  <!-- Nosotros -->
+  <url>
+    <loc>https://dafel.com.mx/nosotros</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cookies -->
+  <url>
+    <loc>https://dafel.com.mx/cookies</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Términos -->
+  <url>
+    <loc>https://dafel.com.mx/terminos</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Privacidad -->
+  <url>
+    <loc>https://dafel.com.mx/privacidad</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- === BOLETINES === -->
+  
+  <!-- Página principal de boletines -->
+  <url>
+    <loc>https://dafel.com.mx/boletines</loc>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Boletines específicos 2025 -->
+  <url>
+    <loc>https://dafel.com.mx/boletines/ia-actuarial-automation-mexico-agosto-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/reforma-afore-digital-septiembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/cloud-actuarial-platforms-octubre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/esg-sustentabilidad-valuaciones-noviembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/futuro-profesion-actuarial-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/quantum-computing-actuarial-breakthrough-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Boletines específicos con sub-artículos -->
+  <url>
+    <loc>https://dafel.com.mx/boletines/dafel-2026-transformacion-digital-innovacion-actuarial</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/nif-d3-cambios-2024</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/boletines/ifrs-19-guia-implementacion</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- === NOTICIAS === -->
+  
+  <!-- Página principal de noticias -->
+  <url>
+    <loc>https://dafel.com.mx/noticias</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Noticias específicas 2025 -->
+  <url>
+    <loc>https://dafel.com.mx/noticias/ia-actuarial-automation-mexico-agosto-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://dafel.com.mx/noticias/reforma-afore-digital-septiembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/noticias/cloud-actuarial-platforms-octubre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/noticias/esg-sustentabilidad-valuaciones-noviembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/noticias/futuro-profesion-actuarial-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/noticias/quantum-computing-actuarial-breakthrough-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- === PUBLICACIONES === -->
+  
+  <!-- Página principal de publicaciones -->
+  <url>
+    <loc>https://dafel.com.mx/publicaciones</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Publicaciones específicas 2025 -->
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/ia-actuarial-automation-mexico-agosto-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/reforma-afore-digital-septiembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/cloud-actuarial-platforms-octubre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/esg-sustentabilidad-valuaciones-noviembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/futuro-profesion-actuarial-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/publicaciones/quantum-computing-actuarial-breakthrough-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- === LEGAL === -->
+  
+  <!-- Página principal legal -->
+  <url>
+    <loc>https://dafel.com.mx/legal</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Documentos legales específicos 2025 -->
+  <url>
+    <loc>https://dafel.com.mx/legal/ia-actuarial-automation-mexico-agosto-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/legal/reforma-afore-digital-septiembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/legal/cloud-actuarial-platforms-octubre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/legal/esg-sustentabilidad-valuaciones-noviembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/legal/futuro-profesion-actuarial-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://dafel.com.mx/legal/quantum-computing-actuarial-breakthrough-diciembre-2025</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

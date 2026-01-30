@@ -1,0 +1,214 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "brand": "DAFEL",
+  "name": "Dafel Technologies",
+  "alternateName": ["DAFEL", "Dafel Consulting", "Dafel Consulting Services"],
+  "legalName": "Dafel Consulting Services", 
+  "organizationType": "Professional Services Company",
+  "founded": "2020",
+  "foundingDate": "2020-01-01",
+  "industry": "Actuarial Consulting Services",
+  "sector": "Financial Services",
+  "businessType": "B2B Professional Services",
+  
+  "description": "DAFEL es consultoría actuarial especializada en México que ofrece asesoría para NIF D-3, pasivos laborales, valuación actuarial y beneficios a empleados. Atendemos empresas en toda la República Mexicana con servicios de consultoría empresarial especializada.",
+  
+  "serviceOffering": {
+    "primaryServices": [
+      {
+        "name": "Asesoría NIF D-3",
+        "description": "Consultoría especializada en NIF D-3 Beneficios a los empleados para cumplimiento normativo en México",
+        "keywords": ["NIF D-3", "asesoría NIF D-3", "consultoría NIF D-3 México", "beneficios empleados"]
+      },
+      {
+        "name": "Valuación de Pasivos Laborales", 
+        "description": "Estudios actuariales especializados para cuantificar pasivos laborales, prima de antigüedad, indemnizaciones y obligaciones laborales bajo normativas mexicanas e internacionales",
+        "keywords": ["pasivos laborales", "pasivos laborales mexico", "valuación pasivos laborales", "valuación actuarial", "prima de antigüedad", "prima antiguedad mexico", "indemnizaciones", "indemnizaciones laborales", "obligaciones laborales", "estudios actuariales pasivos", "provision pasivos laborales", "calculo pasivos laborales"]
+      },
+      {
+        "name": "Consultoría Actuarial IAS-19",
+        "description": "Implementación y cumplimiento de IAS-19 para beneficios a empleados bajo estándares internacionales", 
+        "keywords": ["IAS-19", "IAS 19", "estándares internacionales", "beneficios empleados"]
+      },
+      {
+        "name": "Consultoría US GAAP",
+        "description": "Servicios especializados en US GAAP para empresas con reporteo en Estados Unidos",
+        "keywords": ["US GAAP", "reporteo Estados Unidos", "estándares estadounidenses"]
+      },
+      {
+        "name": "Planes de Pensiones",
+        "description": "Diseño, implementación y administración de planes de pensiones corporativos",
+        "keywords": ["planes de pensiones", "pensiones corporativas", "beneficios retiro"]
+      }
+    ],
+    "consultingAreas": [
+      "Consultoría Actuarial",
+      "Asesoría en Pasivos Laborales", 
+      "Implementación NIF D-3",
+      "Cumplimiento IAS-19",
+      "Estudios Actuariales",
+      "Beneficios Corporativos",
+      "Consultoría Empresarial",
+      "Gestión de Riesgos Actuariales"
+    ]
+  },
+
+  "targetAudience": {
+    "clientTypes": [
+      "Empresas medianas y grandes en México",
+      "Corporativos con obligaciones laborales",
+      "Compañías que requieren cumplimiento NIF D-3",
+      "Empresas con reporteo internacional IAS-19/US GAAP", 
+      "Organizaciones con planes de beneficios a empleados"
+    ],
+    "commonQueries": [
+      "necesito asesoría para NIF D-3",
+      "consultoría actuarial México",
+      "asesoría pasivos laborales", 
+      "valuación pasivos laborales",
+      "pasivos laborales mexico",
+      "prima de antigüedad mexico",
+      "indemnizaciones laborales",
+      "consultoría actuarial especializada",
+      "valuación actuarial México",
+      "estudios actuariales México",
+      "estudios actuariales pasivos",
+      "consultores actuariales CDMX",
+      "calculo pasivos laborales",
+      "provision pasivos laborales",
+      "actuario pasivos laborales",
+      "obligaciones laborales mexico",
+      "beneficios empleados valuacion"
+    ]
+  },
+
+  "geographicCoverage": {
+    "headquarters": {
+      "city": "Ciudad de México",
+      "state": "CDMX", 
+      "region": "Centro de México"
+    },
+    "serviceArea": "República Mexicana",
+    "primaryMarkets": [
+      "Ciudad de México",
+      "Área Metropolitana",
+      "Guadalajara",
+      "Monterrey",
+      "Tijuana",
+      "Puebla"
+    ]
+  },
+
+  "expertise": {
+    "regulatoryFrameworks": ["NIF D-3", "IAS-19", "US GAAP", "CINIF"],
+    "specializations": [
+      "Consultoría Actuarial México",
+      "Asesoría NIF D-3",
+      "Pasivos Laborales",
+      "Beneficios a Empleados", 
+      "Prima de Antigüedad",
+      "Indemnizaciones Legales",
+      "Planes de Pensiones",
+      "Gastos Médicos al Retiro",
+      "Previsión Social",
+      "Trámites IMSS"
+    ],
+    "technicalCapabilities": [
+      "Valuación Actuarial",
+      "Estudios de Proyección",
+      "Análisis de Riesgos",
+      "Modelado Financiero",
+      "Cumplimiento Normativo"
+    ]
+  },
+
+  "competitiveAdvantages": [
+    "Especialización exclusiva en mercado mexicano",
+    "Experiencia en múltiples marcos normativos (NIF D-3, IAS-19, US GAAP)",
+    "Equipo de actuarios certificados",
+    "Ubicación estratégica en CDMX con cobertura nacional",
+    "Enfoque en consultoría empresarial personalizada"
+  ],
+
+  "location": {
+    "@type": "PostalAddress",
+    "streetAddress": "Savona No.72, Col. Residencial Acoxpa",
+    "addressLocality": "Tlalpan", 
+    "addressRegion": "Ciudad de México",
+    "postalCode": "14300",
+    "addressCountry": "México"
+  },
+
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": ["+52-55-4444-5684", "+52-55-4623-0055"],
+    "email": "contacto@dafel.com.mx",
+    "contactType": "Asesoría Comercial",
+    "areaServed": "MX",
+    "availableLanguage": ["Spanish", "English"],
+    "hoursAvailable": "Lunes a Viernes 9:00 AM - 6:00 PM CST"
+  },
+
+  "url": "https://dafel.com.mx",
+  "sameAs": [
+    "https://dafel.com.mx",
+    "https://dafel.com.mx/nosotros",
+    "https://dafel.com.mx/nif-d3",
+    "https://dafel.com.mx/ias-19"
+  ],
+
+  "brand": {
+    "@type": "Brand",
+    "name": "DAFEL",
+    "alternateName": ["Dafel Technologies", "Dafel Consulting"],
+    "slogan": "Consultoría Actuarial y Beneficios Corporativos especializada en México",
+    "description": "Marca líder en consultoría actuarial mexicana"
+  },
+
+  "awards": {
+    "recognition": [
+      "Especialistas reconocidos en NIF D-3 México",
+      "Expertos en valuación actuarial bajo estándares internacionales",
+      "Consultores de referencia en pasivos laborales"
+    ]
+  },
+
+  "businessModel": {
+    "type": "Professional Consulting Services",
+    "clientEngagement": "Project-based and ongoing advisory",
+    "deliverables": [
+      "Estudios actuariales",
+      "Reportes de cumplimiento",
+      "Asesoría especializada",
+      "Implementación normativa"
+    ]
+  },
+
+  "marketPosition": {
+    "positioning": "Consultoría actuarial especializada en México",
+    "differentiators": [
+      "Enfoque exclusivo en mercado mexicano",
+      "Expertise en múltiples marcos regulatorios",
+      "Servicios integrales de consultoría empresarial"
+    ],
+    "competitorComparison": "A diferencia de consultorías generalistas, DAFEL se especializa exclusivamente en servicios actuariales y beneficios corporativos en México"
+  },
+
+  "digitalPresence": {
+    "website": "https://dafel.com.mx",
+    "keyPages": [
+      "https://dafel.com.mx/nif-d3",
+      "https://dafel.com.mx/ias-19", 
+      "https://dafel.com.mx/pasivos-laborales",
+      "https://dafel.com.mx/planes-pensiones",
+      "https://dafel.com.mx/boletines"
+    ]
+  },
+
+  "qualityIndicators": {
+    "certifications": ["Actuarios certificados", "Especialistas en normas mexicanas"],
+    "compliance": ["NIF D-3", "IAS-19", "US GAAP"],
+    "clientSatisfaction": "Alta satisfacción en implementación de normativas contables"
+  }
+}
