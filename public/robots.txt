@@ -105,6 +105,32 @@ Allow: /
 Allow: /about.json
 Crawl-delay: 1
 
+# Meta AI (Facebook/Instagram AI)
+User-agent: FacebookBot
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json
+Crawl-delay: 2
+
+# You.com AI Search
+User-agent: YouBot
+Allow: /
+Allow: /about.json
+Crawl-delay: 1
+
+# Phind AI Search Engine
+User-agent: PhindBot
+Allow: /
+Allow: /about.json
+Crawl-delay: 1
+
+# Google Extended (Gemini Advanced y Bard)
+User-agent: Google-Extended
+Allow: /
+Allow: /about.json
+Allow: /.well-known/ai.json
+Crawl-delay: 1
+
 # === SITEMAPS Y METADATOS ===
 
 # Sitemap principal

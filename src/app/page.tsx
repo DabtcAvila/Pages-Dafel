@@ -1,16 +1,17 @@
 'use client';
 
-import { useState, useEffect, lazy, Suspense, memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bars3Icon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import SimpleCarouselSlide from '@/components/SimpleCarouselSlide';
+import { technologiesConfig } from '@/config/technologies';
 
-// Lazy load heavy components for better LCP  
-const DafelSection = lazy(() => import('@/components/DafelSection'));
-// Direct import para evitar ChunkLoadError
-import ContactModal from '@/components/ContactModal';
+// Import critical components directly for faster LCP
+import DafelSection from '@/components/DafelSection';
+import ContactModal from '@/components/ContactModalOptimized';
 
 // Memoize the main component for better performance
 const HomePage = memo(function HomePage() {
@@ -21,13 +22,15 @@ const HomePage = memo(function HomePage() {
   const [navbarVisible, setNavbarVisible] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showText, setShowText] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
   // Carrusel data with updated titles
   const carouselSlides = [
     {
       image: '/slider-images/slide1-ejecutivo-cerrando-negocio.jpg',
-      title: '¿Necesitas una consultoría empresarial?\n\n¡Cotiza tu valuación bajo NIF D-3, IFRS-19 y/o USGAAP!'
+      title: '¿Necesitas una consultoría empresarial?\n\n¡Cotiza tu valuación bajo NIF D-3, IAS-19 y/o USGAAP!'
     },
     {
       image: '/slider-images/slide2-ejecutivo1.jpg',
@@ -47,10 +50,17 @@ const HomePage = memo(function HomePage() {
     }
   ];
 
+  // NO preloading - let images load naturally when needed to avoid warnings
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
+      
+      // Cerrar menú móvil cuando se hace scroll
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
       
       // Altura de la navbar (72px = h-18)
       const navbarHeight = 72;
@@ -68,27 +78,38 @@ const HomePage = memo(function HomePage() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isMobileMenuOpen]);
 
-  // Auto-advance carousel con gap de texto extendido
+  // Mark as loaded after first frame for LCP optimization
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Ocultar texto 1.0 segundo antes del cambio
-      setShowText(false);
-      
-      setTimeout(() => {
-        // Cambiar slide a la mitad del gap (1.0s después)
-        setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    const timer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Auto-advance carousel optimizado para LCP
+  useEffect(() => {
+    // Don't start carousel immediately to improve LCP
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        // Faster transitions for better performance
+        setShowText(false);
         
         setTimeout(() => {
-          // Mostrar texto 1.0 segundo después del cambio
-          setShowText(true);
-        }, 1000);
-      }, 1000);
-    }, 7000); // Change slide every 7 seconds
+          setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+          
+          setTimeout(() => {
+            setShowText(true);
+          }, 300); // Much faster text appearance
+        }, 300); // Faster slide change
+      }, 7000);
 
-    return () => clearInterval(interval);
-  }, [carouselSlides.length]);
+      return () => clearInterval(interval);
+    }, isInitialLoad ? 3000 : 0); // Wait 3 seconds on initial load
+
+    return () => clearTimeout(startDelay);
+  }, [carouselSlides.length, isInitialLoad]);
   
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -108,12 +129,12 @@ const HomePage = memo(function HomePage() {
     <>
       
       {/* Traditional Navbar */}
-      <motion.nav 
-        className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/20 shadow-sm"
-        initial={{ y: 0 }}
-        animate={{ y: navbarVisible ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        style={{ top: 0 }}
+      <nav 
+        className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/20 shadow-sm transition-transform duration-300 ease-in-out"
+        style={{ 
+          top: 0,
+          transform: navbarVisible ? 'translateY(0)' : 'translateY(-100%)'
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-18">
@@ -123,6 +144,8 @@ const HomePage = memo(function HomePage() {
                 src="/dafel-logo-optimized.svg"
                 alt="Dafel Technologies"
                 className="h-16 w-auto"
+                width="107"
+                height="64"
               />
             </div>
 
@@ -132,17 +155,17 @@ const HomePage = memo(function HomePage() {
                 <a href="#servicios" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Servicios
                 </a>
-                <a href="#boletines" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link href="/boletines" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Boletines
-                </a>
-                <a href="#nosotros" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                </Link>
+                <Link href="/nosotros" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Nosotros
-                </a>
+                </Link>
                 <a href="#contacto" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Contacto
                 </a>
                 <button 
-                  onClick={() => router.push('/login')}
+                  onClick={() => setIsContactModalOpen(true)}
                   className="bg-white text-gray-700 px-4 py-2 rounded-md text-sm font-medium border border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-colors"
                 >
                   {messages.navbar.login}
@@ -153,140 +176,138 @@ const HomePage = memo(function HomePage() {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                aria-expanded="false"
+                aria-label="Toggle menu"
               >
-                <Bars3Icon className="h-6 w-6" />
+                {isMobileMenuOpen ? (
+                  <XMarkIcon className="h-6 w-6" />
+                ) : (
+                  <Bars3Icon className="h-6 w-6" />
+                )}
               </button>
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed top-[72px] left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-b border-gray-200/20 shadow-lg transition-all duration-300"
+        >
+            <div className="px-4 pt-4 pb-6 space-y-3">
+              <a 
+                href="#servicios" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-3 text-lg font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Servicios
+              </a>
+              <Link 
+                href="/boletines" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-3 text-lg font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Boletines
+              </Link>
+              <Link 
+                href="/nosotros" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-3 text-lg font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Nosotros
+              </Link>
+              <a 
+                href="#contacto" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-3 text-lg font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Contacto
+              </a>
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsContactModalOpen(true);
+                }}
+                className="w-full mt-4 text-white px-4 py-3 rounded-md text-lg font-medium transition-colors hover:opacity-90"
+                style={{backgroundColor: '#9fc8fc'}}
+              >
+                {messages.navbar.login}
+              </button>
+            </div>
+        </div>
+      )}
 
       
       {/* Hero Section - Optimized for LCP with banda baja integration */}
       <section className="relative h-screen w-screen z-0 overflow-hidden" style={{ left: 0, right: 0, margin: 0, padding: 0 }}>
-        {/* Carousel Background Images */}
+        {/* Carousel Background Images - Optimized with WebP */}
         {carouselSlides.map((slide, index) => (
-          <div
+          <SimpleCarouselSlide
             key={index}
-            className={`absolute w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              top: 0,
-              height: '100vh',
-              backgroundImage: `url(${slide.image}?v=001)`,
-              backgroundSize: 'cover',
-              backgroundPosition: index === 0 ? 'center' : 'center top',
-              backgroundRepeat: 'no-repeat'
-            }}
-          />
+            image={slide.image}
+            isActive={index === currentSlide}
+            index={index}
+            priority={index === 0} // First image has priority for LCP
+          >
+            <div />
+          </SimpleCarouselSlide>
         ))}
         
         {/* Professional Blue Overlay - Single Layer */}
         <div className="absolute inset-0 bg-blue-500/30 backdrop-blur-[1px]" />
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-48 pb-16 sm:pb-24">
-          <motion.div
-            className="mx-auto max-w-4xl text-center relative z-10"
-            initial="initial"
-            animate="animate"
-            variants={staggerChildren}
-          >
+          <div className="mx-auto max-w-4xl text-center relative z-10">
 
             {/* Contenedor de altura fija para el título - evita movimiento */}
             <div className="h-24 sm:h-28 md:h-32 lg:h-36 xl:h-40 flex items-center justify-center mb-20 sm:mb-24">
-              <AnimatePresence mode="wait">
-                {showText && (
-                  <motion.h1
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight text-center text-white"
-                    style={{ 
-                      textShadow: '0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6)'
-                    }}
-                    key={`${currentSlide}-${showText}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ 
-                      duration: 1.5,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    {carouselSlides[currentSlide].title.split('\n').map((line, index) => {
-                      if (line === '') {
-                        // Línea vacía - crear espacio extra
-                        return <div key={index} className="h-3"></div>;
-                      }
-                      return (
-                        <span key={index}>
-                          {line}
-                          {index < carouselSlides[currentSlide].title.split('\n').length - 1 && <br />}
-                        </span>
-                      );
-                    })}
-                  </motion.h1>
-                )}
-              </AnimatePresence>
+              {showText && (
+                <h1
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight text-center text-white transition-opacity duration-300"
+                  style={{ 
+                    textShadow: '0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6)'
+                  }}
+                >
+                  {carouselSlides[currentSlide].title.split('\n').map((line, index) => {
+                    if (line === '') {
+                      // Línea vacía - crear espacio extra
+                      return <div key={index} className="h-3"></div>;
+                    }
+                    return (
+                      <span key={index}>
+                        {line}
+                        {index < carouselSlides[currentSlide].title.split('\n').length - 1 && <br />}
+                      </span>
+                    );
+                  })}
+                </h1>
+              )}
             </div>
             
             {/* Texto descriptivo - AHORA SIN MARGIN TOP */}
-            <motion.p
+            <p
               className="mx-auto max-w-2xl text-base sm:text-lg font-sans leading-relaxed text-white/90 text-center"
-              variants={fadeIn}
               style={{ 
                 textShadow: '0 1px 2px rgba(0, 0, 0, 0.8)'
               }}
             >
-              Consultoría empresarial especializada en planes de beneficios corporativos, obligaciones laborales y gestión de riesgos, ofreciendo servicios integrales y brindando un respaldo total en su toma de decisiones.
-            </motion.p>
+              <strong>DAFEL</strong> es consultoría actuarial especializada en planes de beneficios corporativos, obligaciones laborales y gestión de riesgos en México. Expertos en <strong>NIF D-3, IAS-19 y US GAAP</strong>.
+            </p>
 
             {/* Botón - SEPARACIÓN LIGERAMENTE MAYOR */}
-            <motion.div
-              className="mt-10 sm:mt-12 flex justify-center"
-              variants={fadeIn}
-            >
+            <div className="mt-10 sm:mt-12 flex justify-center">
               <button 
-                onClick={() => router.push('/login')}
-                className="group relative overflow-hidden rounded-lg border border-white/30 bg-white/10 backdrop-blur-md px-8 sm:px-16 lg:px-32 py-3 sm:py-4 text-base sm:text-lg font-medium text-white transition-all duration-300 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:scale-105 shadow-lg"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.20) 100%)',
-                  backdropFilter: 'blur(12px) brightness(1.2) saturate(130%)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 32px rgba(0,0,0,0.1), inset 0 0 20px rgba(255,255,255,0.15)'
-                }}
+                onClick={() => setIsContactModalOpen(true)}
+                className="bg-white text-gray-900 px-8 sm:px-16 lg:px-32 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm"
               >
-                <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-lg">
-                  {messages.navbar.login}
-                </span>
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                Cotiza Ahora
               </button>
-            </motion.div>
-          </motion.div>
-
-          {/* Banda Baja Animation - Solo en Hero Section */}
-          <div 
-            className="absolute inset-0 w-full pointer-events-none overflow-hidden"
-            style={{ 
-              zIndex: 1,
-              height: '100vh',
-              opacity: Math.max(0, 1 - scrollY / 500), // Se desvanece al hacer scroll
-              transition: 'opacity 0.3s ease-out'
-            }}
-          >
-            <iframe
-              src="/bandabaja-animated.svg"
-              className="border-none absolute scale-120 sm:scale-105"
-              style={{ 
-                background: 'transparent',
-                pointerEvents: 'none',
-                width: 'calc(100vw + 17px)',
-                height: 'calc(100vh + 17px)',
-                border: 'none',
-                margin: 0,
-                padding: 0,
-                left: '-8px',
-                top: '-8px'
-              }}
-              title="Banda Baja Animation"
-            />
+            </div>
           </div>
+
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
@@ -313,12 +334,15 @@ const HomePage = memo(function HomePage() {
         </div>
       </section>
 
-      {/* Dafel Hero Section - Lazy loaded */}
-      <Suspense fallback={<div className="h-96 bg-gray-50 flex items-center justify-center">Loading section...</div>}>
-        <DafelSection />
-      </Suspense>
+      {/* Dafel Hero Section - Lazy loaded - Conditional based on config */}
+      {technologiesConfig.showDafelSection && (
+        <Suspense fallback={<div className="h-96 bg-gray-50 flex items-center justify-center">Loading section...</div>}>
+          <DafelSection onContactModalOpen={() => setIsContactModalOpen(true)} />
+        </Suspense>
+      )}
 
-      {/* Framework Hero Section */}
+      {/* Framework Hero Section - Conditional based on config */}
+      {technologiesConfig.showFrameworkSection && (
       <section className="relative min-h-[500px] sm:min-h-[600px] lg:min-h-screen bg-white">
         <div className="flex flex-col lg:flex-row h-full min-h-[500px] sm:min-h-[600px] lg:min-h-screen">
           {/* Left Column - Content */}
@@ -339,7 +363,7 @@ const HomePage = memo(function HomePage() {
                   {messages.framework.subtitle}
                 </p>
                 <button 
-                  onClick={() => router.push('/login')}
+                  onClick={() => setIsContactModalOpen(true)}
                   className="mt-8 sm:mt-10 bg-gray-900 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-medium text-sm sm:text-base hover:bg-gray-800 transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5 flex items-center gap-2">
                   {messages.framework.ctaButton}
                   <span className="text-base sm:text-lg">→</span>
@@ -513,9 +537,10 @@ const HomePage = memo(function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Core Capabilities Section */}
-      <section className="bg-white py-24">
+      <section id="servicios" className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             className="mx-auto max-w-2xl text-center"
@@ -524,7 +549,7 @@ const HomePage = memo(function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-mono font-light tracking-wider text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-sans font-light tracking-wider text-gray-900 sm:text-4xl">
               {messages.services.title}
             </h2>
             <p className="mt-4 text-lg font-sans text-gray-600">
@@ -533,58 +558,163 @@ const HomePage = memo(function HomePage() {
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-12 sm:mt-20 lg:grid-cols-3"
+            className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
+            {/* 1. Pasivos Laborales */}
             <motion.div
               className="relative"
               variants={fadeIn}
             >
               <div className="mb-4 h-px w-12 bg-gray-900" />
-              <h3 className="text-lg font-mono font-medium tracking-wider text-gray-900">
-                {messages.services.aiDecisions.title}
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.pasivosLaborales.title}
               </h3>
               <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
-                {messages.services.aiDecisions.description}
+                {messages.services.pasivosLaborales.description}
               </p>
-              <button className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors">
+              <Link href="/pasivos-laborales" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
                 {messages.services.learnMore}
-              </button>
+              </Link>
             </motion.div>
 
+            {/* 2. Normativas Contables */}
             <motion.div
               className="relative"
               variants={fadeIn}
             >
               <div className="mb-4 h-px w-12 bg-gray-900" />
-              <h3 className="text-lg font-mono font-medium tracking-wider text-gray-900">
-                {messages.services.automation.title}
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.normativasContables.title}
               </h3>
               <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
-                {messages.services.automation.description}
+                {messages.services.normativasContables.description}
               </p>
-              <button className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors">
+              <Link href="/normativas-contables" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
                 {messages.services.learnMore}
-              </button>
+              </Link>
             </motion.div>
 
+            {/* 3. Planes de Pensiones */}
             <motion.div
               className="relative"
               variants={fadeIn}
             >
               <div className="mb-4 h-px w-12 bg-gray-900" />
-              <h3 className="text-lg font-mono font-medium tracking-wider text-gray-900">
-                {messages.services.predictive.title}
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.planesPensiones.title}
               </h3>
               <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
-                {messages.services.predictive.description}
+                {messages.services.planesPensiones.description}
               </p>
-              <button className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors">
+              <Link href="/planes-pensiones" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
                 {messages.services.learnMore}
-              </button>
+              </Link>
+            </motion.div>
+
+            {/* 4. NIF D-3 */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.nifD3.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.nifD3.description}
+              </p>
+              <Link href="/nif-d3" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
+            </motion.div>
+
+            {/* 5. IAS-19 */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.ifrs19.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.ifrs19.description}
+              </p>
+              <Link href="/ias-19" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
+            </motion.div>
+
+            {/* 6. US GAAP */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.usGaap.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.usGaap.description}
+              </p>
+              <Link href="/us-gaap" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
+            </motion.div>
+
+            {/* 7. Prima de Antigüedad */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.primaAntiguedad.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.primaAntiguedad.description}
+              </p>
+              <Link href="/prima-antiguedad" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
+            </motion.div>
+
+            {/* 8. Indemnizaciones */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.indemnizaciones.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.indemnizaciones.description}
+              </p>
+              <Link href="/indemnizaciones" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
+            </motion.div>
+
+            {/* 9. Gastos médicos al retiro */}
+            <motion.div
+              className="relative"
+              variants={fadeIn}
+            >
+              <div className="mb-4 h-px w-12 bg-gray-900" />
+              <h3 className="text-lg font-sans font-medium tracking-wider text-gray-900">
+                {messages.services.gastosMedicosRetiro.title}
+              </h3>
+              <p className="mt-4 text-sm font-sans leading-relaxed text-gray-600">
+                {messages.services.gastosMedicosRetiro.description}
+              </p>
+              <Link href="/gastos-medicos-retiro" className="mt-6 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors inline-block">
+                {messages.services.learnMore}
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -592,7 +722,7 @@ const HomePage = memo(function HomePage() {
 
 
       {/* Banda Baja Final */}
-      <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+      <section id="contacto" className="relative min-h-[500px] sm:h-80 lg:h-96 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="absolute inset-0 flex items-center justify-center">
           <iframe
             src="/bandabaja-animated.svg"
@@ -608,28 +738,68 @@ const HomePage = memo(function HomePage() {
             title="Banda Baja Animation Final"
           />
         </div>
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-mono font-light text-gray-800 mb-4">
-              ¿Listo para transformar tu negocio?
-            </h3>
-            <button 
-              onClick={() => setIsContactModalOpen(true)}
-              className="bg-gray-900 text-white px-8 py-3 rounded-lg font-medium text-base hover:bg-gray-800 transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
-              style={{
-                background: 'rgba(17, 24, 39, 0.9)',
-                backdropFilter: 'blur(10px)'
-              }}
-            >
-              Contactar Ahora
-            </button>
-          </motion.div>
+        <div className="relative z-10 flex items-center justify-center min-h-full py-8 sm:py-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-gray-800 text-center lg:text-left"
+              >
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-4 sm:mb-6">
+                  ¿Listo para <span className="font-semibold">trabajar juntos</span>?
+                </h2>
+                <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
+                  Contáctanos y descubre cómo podemos ayudar a tu empresa a alcanzar sus objetivos.
+                </p>
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="bg-white text-gray-900 px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 hover:shadow-lg w-full sm:w-auto"
+                >
+                  Contactar Especialista
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl p-6 sm:p-8 mt-6 lg:mt-0"
+              >
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Información de Contacto</h3>
+                
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex items-start gap-3 text-gray-600">
+                    <svg className="h-5 w-5 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm sm:text-base font-medium text-gray-700 mb-1">Teléfonos</p>
+                      <p className="text-sm sm:text-base">+52 (55) 4444-5684</p>
+                      <p className="text-sm sm:text-base">+52 (55) 4623-0055</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3 text-gray-600">
+                    <svg className="h-5 w-5 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 0115 0z" />
+                    </svg>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm sm:text-base font-medium text-gray-700 mb-1">Dirección</p>
+                      <p className="text-sm sm:text-base">Savona No.72</p>
+                      <p className="text-sm sm:text-base">Col. Residencial Acoxpa</p>
+                      <p className="text-sm sm:text-base">Alcaldía Tlalpan</p>
+                      <p className="text-sm sm:text-base">Ciudad de México C.P. 14300</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -639,22 +809,25 @@ const HomePage = memo(function HomePage() {
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex flex-col items-center sm:items-start">
               <span className="text-lg font-sans font-semibold text-gray-900">
-                Dafel Consulting Services
+                DAFEL - Consultoría Actuarial
               </span>
+              <p className="mt-1 text-sm font-sans text-gray-700">
+                Especialistas en NIF D-3, IAS-19 y US GAAP
+              </p>
               <p className="mt-2 text-sm font-sans text-gray-600">
                 {messages.footer.rights}
               </p>
             </div>
             <div className="flex space-x-6">
-              <button className="text-sm text-gray-600 hover:text-gray-900">
+              <a href="/privacidad" className="text-sm text-gray-600 hover:text-gray-900">
                 {messages.footer.privacy}
-              </button>
-              <button className="text-sm text-gray-600 hover:text-gray-900">
+              </a>
+              <a href="/terminos" className="text-sm text-gray-600 hover:text-gray-900">
                 {messages.footer.terms}
-              </button>
-              <button className="text-sm text-gray-600 hover:text-gray-900">
+              </a>
+              <a href="/cookies" className="text-sm text-gray-600 hover:text-gray-900">
                 {messages.footer.cookies}
-              </button>
+              </a>
             </div>
           </div>
         </div>

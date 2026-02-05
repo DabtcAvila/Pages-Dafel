@@ -7,7 +7,7 @@
   "hero": {
     "title": "Actuarial Services.",
     "titleHighlight": "Absolute Precision.",
-    "description": "Specialized actuarial consulting for labor obligation valuations. Full compliance with NIF D-3, IFRS-19 and USGAAP for your company.",
+    "description": "Specialized actuarial consulting for labor obligation valuations. Full compliance with NIF D-3, IAS-19 and USGAAP for your company.",
     "exploreButton": "Explore Solutions",
     "demoButton": "Request Demo"
   },
@@ -88,8 +88,8 @@
     }
   },
   "footer": {
-    "company": "Dafel Technologies",
-    "rights": "© 2025 Dafel Technologies. All rights reserved.",
+    "company": "Dafel Consulting Services",
+    "rights": "© 2025 Dafel Consulting Services. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
     "cookies": "Cookies"

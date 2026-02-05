@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "decorators": false,
+      "dynamicImport": true
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    },
+    "target": "es2022",
+    "loose": false,
+    "externalHelpers": false
+  },
+  "module": {
+    "type": "es6",
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  },
+  "minify": true,
+  "sourceMaps": false,
+  "env": {
+    "targets": {
+      "chrome": "91",
+      "firefox": "90",
+      "safari": "15",
+      "edge": "91"
+    },
+    "mode": "entry",
+    "coreJs": false,
+    "exclude": [
+      "es.array.at",
+      "es.array.flat", 
+      "es.array.flat-map",
+      "es.object.from-entries",
+      "es.object.has-own",
+      "es.string.trim-start",
+      "es.string.trim-end",
+      "web.url",
+      "es.string.trim-left",
+      "es.string.trim-right"
+    ]
+  }
+}

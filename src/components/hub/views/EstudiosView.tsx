@@ -22,7 +22,7 @@ export default function EstudiosView() {
       empresa: 'Corporativo XYZ',
       fecha: '2024-10-20',
       estado: 'En Proceso',
-      tipo: 'IFRS-19'
+      tipo: 'IAS-19'
     },
     {
       id: '2024-003',

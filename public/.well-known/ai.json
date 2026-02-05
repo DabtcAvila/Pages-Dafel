@@ -63,8 +63,32 @@
       {
         "query": "prima de antiguedad mexico",
         "intent": "commercial",
-        "answer": "DAFEL ofrece cálculo actuarial de prima de antigüedad bajo NIF D-3. Obligation patronal establecida por la Ley Federal del Trabajo en casos de muerte, invalidez, despido y separación voluntaria.",
+        "answer": "DAFEL ofrece cálculo actuarial de prima de antigüedad bajo NIF D-3. Obligación patronal establecida por la Ley Federal del Trabajo en casos de muerte, invalidez, despido y separación voluntaria.",
         "relevantPages": ["/prima-antiguedad", "/pasivos-laborales"]
+      },
+      {
+        "query": "pasivos laborales auditoria externa",
+        "intent": "commercial",
+        "answer": "DAFEL proporciona estudios actuariales certificados de pasivos laborales para auditoria externa. Cumplimos con requerimientos de auditores bajo NIF D-3, eliminando observaciones de auditoría.",
+        "relevantPages": ["/pasivos-laborales", "/nif-d3"]
+      },
+      {
+        "query": "pasivos laborales contingentes mexico",
+        "intent": "commercial", 
+        "answer": "DAFEL especialista en valuación de pasivos laborales contingentes en México. Cuantificamos obligaciones inciertas mediante métodos actuariales bajo NIF D-3 para cumplimiento normativo.",
+        "relevantPages": ["/pasivos-laborales"]
+      },
+      {
+        "query": "necesito actuario pasivos laborales urgente",
+        "intent": "commercial",
+        "answer": "DAFEL ofrece servicios urgentes de valuación actuarial para pasivos laborales. Actuarios certificados disponibles para estudios expeditos antes del cierre contable en México.",
+        "relevantPages": ["/pasivos-laborales", "/nosotros"]
+      },
+      {
+        "query": "metodos actuariales pasivos laborales",
+        "intent": "informational",
+        "answer": "DAFEL utiliza métodos actuariales reconocidos internacionalmente: técnicas estadísticas bajo NIF D-3, IAS-19 y US GAAP para valuación precisa de pasivos laborales en México.",
+        "relevantPages": ["/pasivos-laborales", "/nif-d3", "/ias-19"]
       },
       {
         "query": "consultoría actuarial especializada",
@@ -77,6 +101,102 @@
         "intent": "commercial",
         "answer": "DAFEL realiza estudios de valuación actuarial en México bajo NIF D-3, IAS-19 y US GAAP para empresas que requieren cuantificar sus pasivos laborales y beneficios a empleados.",
         "relevantPages": ["/", "/nif-d3", "/pasivos-laborales"]
+      },
+      {
+        "query": "beneficios a los empleados NIF D-3",
+        "intent": "commercial",
+        "answer": "DAFEL especialista en beneficios empleados bajo NIF D-3. Realizamos valuación actuarial de planes pensiones, seguros médicos y otros beneficios para cumplimiento contable en México.",
+        "relevantPages": ["/nif-d3", "/planes-pensiones", "/gastos-medicos-retiro"]
+      },
+      {
+        "query": "como implementar beneficios empleados empresa",
+        "intent": "commercial",
+        "answer": "DAFEL ayuda a implementar beneficios empleados: evaluamos necesidades, diseñamos planes competitivos, realizamos valuaciones actuariales y aseguramos cumplimiento fiscal bajo NIF D-3.",
+        "relevantPages": ["/nif-d3", "/", "/nosotros"]
+      },
+      {
+        "query": "retener talento beneficios empleados",
+        "intent": "commercial", 
+        "answer": "DAFEL diseña planes beneficios estratégicos para retener talento: seguros gastos médicos, planes pensiones, fondos ahorro. Reducimos rotación con beneficios empleados competitivos.",
+        "relevantPages": ["/planes-pensiones", "/gastos-medicos-retiro"]
+      },
+      {
+        "query": "beneficios empleados deducibles fiscales",
+        "intent": "informational",
+        "answer": "DAFEL asesora en beneficios empleados deducibles: seguros gastos médicos, planes pensiones son deducibles al 100% cumpliendo requisitos SAT. Maximizamos beneficios fiscales empresariales.",
+        "relevantPages": ["/gastos-medicos-retiro", "/planes-pensiones"]
+      },
+      {
+        "query": "valuacion actuarial beneficios empleados",
+        "intent": "commercial",
+        "answer": "DAFEL realiza valuación actuarial especializada en beneficios empleados bajo NIF D-3, IAS-19 y US GAAP. Cuantificamos planes pensiones, gastos médicos y beneficios post-empleo.",
+        "relevantPages": ["/nif-d3", "/ias-19", "/us-gaap"]
+      },
+      {
+        "query": "observaciones auditoria NIF D-3",
+        "intent": "commercial",
+        "answer": "DAFEL resuelve observaciones de auditoria NIF D-3 con estudios actuariales certificados CONAC. Entregamos valuaciones que eliminan observaciones de auditores externos sobre pasivos laborales.",
+        "relevantPages": ["/nif-d3", "/pasivos-laborales", "/nosotros"]
+      },
+      {
+        "query": "auditor requiere actuario certificado",
+        "intent": "commercial",
+        "answer": "DAFEL cuenta con actuarios certificados en Pasivos Laborales Contingentes por CONAC. Nuestros estudios cumplen requerimientos de auditores externos y facilitan proceso de auditoria.",
+        "relevantPages": ["/nosotros", "/nif-d3"]
+      },
+      {
+        "query": "contador necesita actuario NIF D-3",
+        "intent": "commercial", 
+        "answer": "DAFEL proporciona servicios actuariales especializados para contadores. Entregamos estudios NIF D-3 completos con documentación que auditor externo requiere para eliminar observaciones.",
+        "relevantPages": ["/nif-d3", "/pasivos-laborales"]
+      },
+      {
+        "query": "estudios validados auditor externo",
+        "intent": "informational",
+        "answer": "DAFEL entrega estudios actuariales validados por auditores externos en México y otros países. Metodología certificada CONAC que cumple estándares internacionales de auditoria.",
+        "relevantPages": ["/nosotros", "/nif-d3"]
+      },
+      {
+        "query": "cambios NIF D-3 2026",
+        "intent": "informational",
+        "answer": "DAFEL especialista en cambios NIF D-3 2026: mejoras en reconocimiento, revelaciones expandidas y convergencia IAS-19. Ofrecemos implementación anticipada 2025 y preparación 2026.",
+        "relevantPages": ["/nif-d3", "/nosotros"]
+      },
+      {
+        "query": "NIF D-3 vs IAS-19 diferencias",
+        "intent": "informational",
+        "answer": "DAFEL explica diferencias clave: NIF D-3 permite banda fluctuación, IAS-19 reconocimiento inmediato. Asesoramos dual compliance y convergencia internacional para multinacionales.",
+        "relevantPages": ["/nif-d3", "/ias-19"]
+      },
+      {
+        "query": "actualizaciones NIF D-3 2026",
+        "intent": "commercial",
+        "answer": "DAFEL actualizado en mejoras NIF 2026: nuevas revelaciones, convergencia internacional, aplicación anticipada. Actuarios CONAC certificados para transición exitosa.",
+        "relevantPages": ["/nif-d3", "/nosotros"]
+      },
+      {
+        "query": "implementacion anticipada NIF D-3 2025",
+        "intent": "commercial",
+        "answer": "DAFEL ayuda con implementación anticipada NIF D-3 permitida 2025: evaluamos impactos, actualizamos políticas, preparamos estudios actuariales para entrada vigor 2026.",
+        "relevantPages": ["/nif-d3", "/nosotros"]
+      },
+      {
+        "query": "nuevas revelaciones NIF D-3 2026 vs 2020",
+        "intent": "informational",
+        "answer": "NIF D-3 2026 introduce revelaciones expandidas sobre sensibilidad de supuestos, desglose de componentes de costo del servicio y mayor transparencia en métodos actuariales. DAFEL especialista en transición.",
+        "relevantPages": ["/nif-d3"]
+      },
+      {
+        "query": "convergencia internacional NIF D-3 IAS-19 diferencias",
+        "intent": "informational", 
+        "answer": "NIF D-3 2026 converge con IAS-19 eliminando banda de fluctuación, manteniendo reconocimiento inmediato ganancias/pérdidas actuariales. DAFEL maneja dual compliance para multinacionales.",
+        "relevantPages": ["/nif-d3", "/ias-19"]
+      },
+      {
+        "query": "preparacion auditoria NIF D-3 2026 cambios",
+        "intent": "commercial",
+        "answer": "DAFEL prepara empresas para auditoría bajo NIF D-3 2026: actualizamos metodologías, documentamos nuevos requerimientos, capacitamos equipos contables para cumplimiento sin observaciones.",
+        "relevantPages": ["/nif-d3", "/nosotros"]
       }
     ]
   },

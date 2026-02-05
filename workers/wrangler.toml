@@ -1,0 +1,8 @@
+# 📧 CLOUDFLARE WORKER - API DE CONTACTO DAFEL
+name = "dafel-contact-api"
+main = "contact-api.js"
+compatibility_date = "2024-12-20"
+
+# Variables de entorno
+[vars]
+ENVIRONMENT = "production"

@@ -17,9 +17,13 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "tech": "node scripts/toggle-tech.js",
+    "habilitar-tech": "node scripts/toggle-tech.js habilitar",
+    "deshabilitar-tech": "node scripts/toggle-tech.js deshabilitar"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.2",
@@ -52,10 +56,19 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.7",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "webpack-bundle-analyzer": "^5.1.0"
   },
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 91",
+    "Firefox >= 90", 
+    "Safari >= 15",
+    "Edge >= 91",
+    "not dead",
+    "not IE 11"
+  ]
 }

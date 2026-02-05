@@ -221,7 +221,7 @@ export default function ContactModal({ open, onOpenChange }: ContactModalProps) 
                         {/* Normas Contables */}
                         <div>
                           <label className="block text-xs font-medium text-gray-700 uppercase tracking-wider mb-3">
-                            Bajo qué pasivo(s) laborales desea cotizar: *
+                            Bajo qué norma(s) contable(s) desea cotizar: *
                           </label>
                           <div className="space-y-2">
                             {['NIF D-3', 'IFRS-19', 'USGAAP'].map((standard) => (

@@ -22,7 +22,7 @@ export default function ReportesView() {
       titulo: 'Análisis de Sensibilidad - Indemnizaciones',
       empresa: 'Corporativo XYZ',
       fecha: '2024-10-20',
-      tipo: 'Análisis IFRS-19',
+      tipo: 'Análisis IAS-19',
       tamaño: '1.8 MB',
       formato: 'PDF'
     },

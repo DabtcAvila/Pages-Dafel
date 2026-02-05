@@ -2,12 +2,12 @@
   "navbar": {
     "company": "Dafel Technologies",
     "scheduleConsultation": "Programar Asesoría",
-    "login": "Iniciar Sesión"
+    "login": "Cotizar ahora"
   },
   "hero": {
     "title": "Servicios Actuariales.",
     "titleHighlight": "Precisión Absoluta.",
-    "description": "Consultoria actuarial especializada en valuación de obligaciones laborales. Cumplimiento total con NIF D-3, IFRS-19 y USGAAP para su empresa.",
+    "description": "Consultoria actuarial especializada en valuación de obligaciones laborales. Cumplimiento total con NIF D-3, IAS-19 y USGAAP para su empresa.",
     "exploreButton": "Explorar Soluciones",
     "demoButton": "Solicitar Demo"
   },
@@ -49,17 +49,41 @@
   "services": {
     "title": "Servicios Especializados",
     "subtitle": "Consultoría actuarial integral para el cumplimiento de obligaciones laborales",
-    "aiDecisions": {
+    "nifD3": {
+      "title": "NIF D-3",
+      "description": "Valuación de beneficios a empleados bajo la Norma de Información Financiera D-3, incluyendo reconocimiento, medición y revelación de obligaciones laborales."
+    },
+    "ifrs19": {
+      "title": "IAS-19",
+      "description": "Implementación del estándar internacional IAS-19 para beneficios a empleados, aplicando el método de crédito unitario proyectado y reconocimiento en OCI."
+    },
+    "usGaap": {
+      "title": "US GAAP",
+      "description": "Consultoría especializada en principios contables estadounidenses (ASC 715) para planes de beneficios definidos y gestión actuarial bajo normativa US GAAP."
+    },
+    "primaAntiguedad": {
       "title": "Prima de Antigüedad",
-      "description": "Valuación actuarial de obligaciones por prima de antigüedad conforme a la Ley Federal del Trabajo y NIF D-3."
+      "description": "Cálculo actuarial de obligaciones por prima de antigüedad conforme a la Ley Federal del Trabajo, con valuaciones técnicas y proyecciones demográficas."
     },
-    "automation": {
+    "indemnizaciones": {
       "title": "Indemnizaciones",
-      "description": "Cálculo de pasivos por indemnizaciones legales y planes de beneficios definidos bajo estándares internacionales."
+      "description": "Valuación de pasivos por indemnizaciones legales, planes de beneficios definidos y compensaciones por terminación de la relación laboral."
     },
-    "predictive": {
+    "gastosMedicosRetiro": {
+      "title": "Gastos médicos al retiro",
+      "description": "Evaluación actuarial de beneficios médicos post-empleo, incluyendo seguros de gastos médicos mayores y atención sanitaria para jubilados."
+    },
+    "planesPensiones": {
       "title": "Planes de Pensiones",
-      "description": "Diseño y valuación de planes de jubilación, análisis de riesgos actuariales y proyecciones demográficas."
+      "description": "Diseño y valuación de planes de jubilación, análisis de riesgos actuariales y proyecciones demográficas para sistemas de pensiones empresariales."
+    },
+    "pasivosLaborales": {
+      "title": "Pasivos Laborales",
+      "description": "Valuación integral de obligaciones laborales incluyendo prima de antigüedad, indemnizaciones y beneficios post-empleo según normativas mexicanas e internacionales."
+    },
+    "normativasContables": {
+      "title": "Normativas Contables",
+      "description": "Asesoría especializada en marcos normativos NIF D-3, IAS-19 y US GAAP para el reconocimiento y medición contable de beneficios a empleados."
     },
     "learnMore": "Conocer más →"
   },
@@ -88,8 +112,8 @@
     }
   },
   "footer": {
-    "company": "Dafel Technologies",
-    "rights": "© 2025 Dafel Technologies. Todos los derechos reservados.",
+    "company": "Dafel Consulting Services",
+    "rights": "© 2025 Dafel Consulting Services. Todos los derechos reservados.",
     "privacy": "Privacidad",
     "terms": "Términos",
     "cookies": "Cookies"

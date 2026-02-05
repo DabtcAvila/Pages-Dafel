@@ -1,22 +1,27 @@
 {
-  "name": "Dafel Technologies",
-  "short_name": "Dafel Tech",
-  "description": "Soluciones Corporativas de Inteligencia Artificial",
+  "name": "Dafel Consulting Services - Consultoría Actuarial",
+  "short_name": "Dafel Consulting",
+  "description": "Especialistas en consultoría actuarial, valuaciones de beneficios laborales bajo NIF D-3, IAS-19 y US GAAP. Servicios profesionales para empresas en México.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#111827",
   "orientation": "portrait-primary",
+  "categories": ["business", "finance", "professional-services"],
+  "lang": "es-MX",
   "icons": [
     {
       "src": "/favicon-16.png",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/favicon-32.png",
-      "sizes": "32x32",
-      "type": "image/png"
+      "sizes": "32x32", 
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icon-192.png",
@@ -29,6 +34,21 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/slider-images/slide1-ejecutivo-cerrando-negocio.jpg",
+      "sizes": "1200x800",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Servicios de consultoría actuarial profesional"
     }
   ]
 }

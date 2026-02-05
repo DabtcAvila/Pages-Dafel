@@ -1,0 +1,36 @@
+¿Qué son los Pasivos Laborales?
+Los pasivos laborales representan las obligaciones futuras  que una empresa debe cumplir con sus empleados, derivadas de la Ley Federal del Trabajo por su relación laboral presente y pasada.
+Estas obligaciones incluyen beneficios post-empleo, indemnizaciones, prima de antigüedad y otros compromisos laborales que deben ser valuados, reconocidos y provisionados adecuadamente en los estados financieros.
+La correcta gestión de pasivos laborales no solo asegura el cumplimiento normativo, sino que también proporciona transparencia financiera , reduce riesgos operacionales y de omisiones en auditorías o revisiones fiscales.
+
+Principales Características
+Obligaciones futuras por servicios pasados
+Requieren valuación actuarial especializada
+Impactan estados financieros significativamente
+Sujetos a regulación específica por norma (NIF D3 en México, IAS-19 Internacional,  ASC715 en Estados Unidos)
+
+Tipos de Pasivos Laborales
+Análisis especializado para cada tipo de obligación laboral según su naturaleza y marco normativo aplicable.
+
+Prima de Antigüedad
+Obligación patronal establecida por la Ley Federal del Trabajo pagadera en casos de: muerte, invalidez, despido, y separación voluntaria con más de 15 años de servicio.
+Requiere Valuación bajo NIF D-3  /  ASC 715  /  IAS-19
+Cálculo actuarial completo aplicable a toda empresa con trabajadores sin importar su tamaño.
+
+Indemnizaciones por Despido
+Pasivos derivados de terminación de relación laboral sin causa justificada o por causa imputable al patrón.
+Indemnización constitucional, salarios vencidos y prestaciones pendientes
+Importe conforme a Ley, o montos acordados con el trabajador a cambio de la renuncia voluntaria.
+Se pueden dar de forma planeada (reestructuras) o por rotación habitual de personal.
+Requiere Valuación bajo NIF D-3  /  ASC 715  /  IAS-19
+Cálculo actuarial completo aplicable a toda empresa con trabajadores sin importar su tamaño.
+
+
+Planes de Pensiones
+Obligaciones post-empleo y otros beneficios a largo plazo para empleados. 
+Provienen de planes privados o beneficios adicionales a los de ley.
+Pueden ser:
+	•	Contribución Definida (aportaciones fijas, sin beneficios mínimos a la jubilación)
+	•	Beneficio Definido o Híbridos.
+Requieren Valuación bajo NIF D-3  /  ASC 715  /  IAS-19
+Cálculo actuarial completo aplicable

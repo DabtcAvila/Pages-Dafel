@@ -12,8 +12,27 @@ export const metadata: Metadata = {
   keywords: [
     'consultoría actuarial',
     'beneficios corporativos', 
+    'beneficios a los empleados',
+    'beneficios empleados NIF D-3',
+    'beneficios empleados mexico',
+    'valuacion beneficios empleados',
+    'consultoria beneficios empleados',
+    'implementar beneficios empleados',
+    'planes beneficios empleados',
+    'retener talento empleados',
+    'beneficios empleados competitivos',
     'planes de pensiones',
+    'planes pensiones empleados',
+    'seguros gastos medicos empresas',
+    'fondos ahorro empleados',
     'NIF D-3',
+    'NIF D-3 2026',
+    'cambios NIF D-3 2026',
+    'actualizaciones NIF D-3 2026',
+    'mejoras NIF 2026',
+    'NIF D-3 vs IAS-19',
+    'diferencias NIF D-3 IAS-19',
+    'convergencia NIF D-3 IAS-19',
     'IAS-19',
     'US GAAP',
     'pasivos laborales',
@@ -23,6 +42,17 @@ export const metadata: Metadata = {
     'administración de riesgos',
     'trámites IMSS',
     'asesoría fiscal',
+    'beneficios empleados fiscales',
+    'deducibles beneficios empleados',
+    'observaciones auditoria NIF D-3',
+    'auditor requiere actuario',
+    'contador necesita actuario',
+    'actuario certificado CONAC',
+    'estudios validados auditor externo',
+    'auditoria externa pasivos laborales',
+    'actuario certificado pasivos laborales contingentes',
+    'eliminar observaciones auditoria',
+    'documentacion auditoria NIF D-3',
     'UMA 2025',
     'ESG reporting',
     'sostenibilidad empresarial',
@@ -463,6 +493,126 @@ export default function RootLayout({
                     "@type": "Answer",
                     "text": "La NIF D-3 requiere valuación actuarial para pasivos laborales. DAFEL tiene actuarios certificados que calculan obligaciones laborales usando métodos estadísticos y financieros para cumplimiento normativo en México."
                   }
+                },
+                {
+                  "@type": "Question", 
+                  "name": "¿Qué necesito para auditoria externa de pasivos laborales?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para auditoria externa necesitas estudio actuarial certificado de pasivos laborales bajo NIF D-3. DAFEL proporciona valuaciones que cumplen requerimientos de auditores externos en México."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cómo se calculan los pasivos laborales contingentes?", 
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Los pasivos laborales contingentes se calculan mediante métodos actuariales. DAFEL usa factores demográfico-financieros para cuantificar obligaciones inciertas como prima de antigüedad e indemnizaciones."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Necesito actuario certificado para pasivos laborales urgente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer", 
+                    "text": "Sí, DAFEL cuenta con actuarios certificados que pueden realizar estudios urgentes de pasivos laborales. Ofrecemos servicios expeditos para empresas que necesitan valuaciones antes del cierre contable."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué métodos actuariales usa DAFEL para pasivos laborales?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL utiliza métodos actuariales reconocidos internacionalmente bajo NIF D-3, IAS-19 y US GAAP. Aplicamos técnicas estadísticas avanzadas para cuantificar pasivos laborales con precisión."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cómo implementar beneficios a los empleados en mi empresa?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL ayuda a implementar beneficios empleados bajo NIF D-3: evaluamos necesidades, diseñamos planes de pensiones, seguros médicos, y realizamos valuaciones actuariales para cumplimiento fiscal y contable."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué beneficios empleados son deducibles fiscalmente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL asesora en beneficios empleados deducibles: seguros gastos médicos, planes pensiones, fondos ahorro. Cumplimos requisitos SAT para maximizar beneficios fiscales empresariales."
+                  }
+                },
+                {
+                  "@type": "Question", 
+                  "name": "¿Cómo valuar actuarialmente beneficios a empleados?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL realiza valuación actuarial de beneficios empleados bajo NIF D-3, IAS-19 y US GAAP. Cuantificamos planes pensiones, gastos médicos y otros beneficios para estados financieros."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué beneficios empleados ayudan a retener talento?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL diseña planes beneficios competitivos: seguros gastos médicos, planes pensiones, fondos ahorro. Ayudamos a reducir rotación personal con beneficios empleados estratégicos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué hacer con observaciones de auditoria en NIF D-3?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL resuelve observaciones de auditoria NIF D-3 con estudios actuariales certificados. Nuestros actuarios registrados CONAC entregan valuaciones que cumplen estándares de auditores externos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cómo elegir actuario certificado para auditoria externa?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL cuenta con actuarios certificados en Pasivos Laborales Contingentes por CONAC. Nuestros estudios han sido validados por auditores en México, Estados Unidos y otros países."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Necesito actuario cuando auditor externo lo requiere?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, cuando auditor externo requiere actuario para NIF D-3, DAFEL proporciona servicios especializados. Entregamos estudios que facilitan el proceso de auditoria y eliminan observaciones."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué documentación necesita contador para auditoria NIF D-3?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL entrega estudios actuariales completos para auditoria: valuación certificada, metodología detallada, supuestos actuariales y reportes que cumplen requerimientos de contadores y auditores."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué cambios trae NIF D-3 2026?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Las mejoras NIF 2026 incluyen actualizaciones en reconocimiento, revelaciones y convergencia con IAS-19. DAFEL ayuda a empresas con implementación anticipada permitida desde 2025 y cumplimiento 2026."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Diferencias entre NIF D-3 vs IAS-19?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL especialista en ambas normativas: NIF D-3 permite método banda fluctuación mientras IAS-19 requiere reconocimiento inmediato. Asesoramos convergencia internacional y dual compliance."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cómo prepararse para NIF D-3 2026?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DAFEL recomienda: revisar políticas actuales, evaluar impactos de nuevas revelaciones, considerar aplicación anticipada 2025. Nuestros actuarios certificados CONAC aseguran transición exitosa."
+                  }
                 }
               ]
             })
@@ -527,6 +677,20 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        
+        {/* Hidden Internal Link Structure for SEO Authority Distribution */}
+        <div style={{position: 'absolute', left: '-9999px', top: '-9999px', visibility: 'hidden', overflow: 'hidden', width: '1px', height: '1px'}}>
+          <nav aria-hidden="true">
+            <ul>
+              <li><a href="/pasivos-laborales" title="Pasivos Laborales México">Valuación Actuarial Pasivos Laborales</a></li>
+              <li><a href="/prima-antiguedad" title="Prima Antigüedad México">Prima de Antigüedad Ley Federal Trabajo</a></li>  
+              <li><a href="/indemnizaciones" title="Indemnizaciones Laborales">Indemnizaciones por Terminación Laboral</a></li>
+              <li><a href="/nif-d3" title="Asesoría NIF D-3 México">NIF D-3 Beneficios a Empleados</a></li>
+              <li><a href="/ias-19" title="Consultoría IAS-19">IAS-19 Estándares Internacionales</a></li>
+              <li><a href="/us-gaap" title="US GAAP México">US GAAP Reporteo Estados Unidos</a></li>
+            </ul>
+          </nav>
+        </div>
         
         {/* Analytics placeholder for future implementation */}
         {process.env.NODE_ENV === 'production' && process.env.GOOGLE_ANALYTICS_ID && (
