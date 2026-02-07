@@ -135,7 +135,7 @@ export default function Ifrs19Page() {
         "Evaluación de políticas contables actuales",
         "Identificación de brechas normativas"
       ],
-      duracion: "4-6 semanas"
+      duracion: "1 semana"
     },
     {
       etapa: "Valuación Actuarial",
@@ -146,7 +146,7 @@ export default function Ifrs19Page() {
         "Determinación de costos de servicios",
         "Análisis de sensibilidad requerido"
       ],
-      duracion: "6-8 semanas"
+      duracion: "1-3 días"
     },
     {
       etapa: "Ajustes Contables",
@@ -157,7 +157,7 @@ export default function Ifrs19Page() {
         "Ajuste de políticas contables",
         "Preparación de revelaciones"
       ],
-      duracion: "3-4 semanas"
+      duracion: "1-2 días"
     },
     {
       etapa: "Cumplimiento Continuo",

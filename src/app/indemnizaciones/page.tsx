@@ -48,35 +48,34 @@ export default function IndemnizacionesPage() {
   const tiposIndemnizaciones = [
     {
       tipo: "Despido Injustificado",
-      baseLegal: "Artículo 50 LFT",
+      baseegal: "Artículos 48 y 50 LFT",
       calculo: "3 meses + 20 días por año + salarios vencidos",
       caracteristicas: [
         "Aplicable cuando no existe causa justificada",
         "Incluye prima de antigüedad si procede",
-        "Salarios caídos hasta resolución judicial",
-        "Intereses moratorios según jurisprudencia"
+        "Salarios caídos hasta resolución del juicio ante la Autoridad Conciliadora",
+        "Intereses moratorios legales"
       ]
     },
     {
-      tipo: "Terminación Voluntaria por Causa Imputable al Patrón",
-      baseegal: "Artículo 50 LFT",
-      calculo: "3 meses + 20 días por año + prima de antigüedad",
+      tipo: "Despido Justificado",
+      baseegal: "Artículo 47 LFT",
+      calculo: "Finiquito (sin indemnización)",
       caracteristicas: [
-        "Reducción de salario sin justificación",
-        "Cambio de lugar de trabajo perjudicial",
-        "Incumplimiento de obligaciones patronales",
-        "Violencia, amenazas o malos tratos"
+        "El empleador podrá rescindir en cualquier tiempo la relación de trabajo, por causa justificada, sin incurrir en responsabilidad de remuneración alguna",
+        "Las causas de rescisión se establecen en el Artículo 47 de la LFT",
+        "Solo corresponde el pago de prestaciones devengadas"
       ]
     },
     {
-      tipo: "Muerte o Incapacidad del Trabajador",
-      baseegal: "Artículo 162 LFT",
-      calculo: "2 meses + prima de antigüedad",
+      tipo: "Despido a la Edad de Jubilación",
+      baseegal: "Artículo 47 LFT",
+      calculo: "Finiquito + prima de antigüedad (si procede)",
       caracteristicas: [
-        "Fallecimiento por causas no laborales",
-        "Incapacidad total permanente",
-        "Pago a beneficiarios designados",
-        "Prima de antigüedad proporcional"
+        "Aplica cuando la relación laboral concluye por jubilación o retiro del trabajador, generalmente por voluntad del trabajador o mutuo consentimiento",
+        "El art 47 establece las causas de rescisión de la relación laboral, no establece la edad como una, por lo que no hay responsabilidad patronal indemnizatoria",
+        "Los importes pagados por este concepto pueden considerarse como pago de jubilación y resultar deducibles para efectos fiscales, siempre que cumplan con los requisitos correspondientes",
+        "Pago de prestaciones devengadas"
       ]
     },
     {
@@ -84,10 +83,9 @@ export default function IndemnizacionesPage() {
       baseegal: "Artículo 436-439 LFT",
       calculo: "3 meses + 20 días por año + prima de antigüedad",
       caracteristicas: [
-        "Cambios tecnológicos que reduzcan personal",
+        "Cambios tecnológicos que reduzcan personal (implementación de maquinaria o de nuevos procedimientos de trabajo)",
         "Cierre total o parcial de empresa",
-        "Conciliación ante autoridad laboral",
-        "Posible diferimiento de pagos"
+        "Conciliación ante autoridad laboral si el empleador reanuda las actividades"
       ]
     }
   ];
@@ -97,9 +95,10 @@ export default function IndemnizacionesPage() {
       factor: "Probabilidades de Terminación",
       descripcion: "Estimación de la likelihood de diferentes tipos de terminación laboral",
       componentes: [
-        "Tasas de despido históricas por categoría",
-        "Análisis de litigios laborales previos",
-        "Rotación voluntaria e involuntaria",
+        "Tasas de despido históricas",
+        "Antigüedad promedio por tipo de salida",
+        "Análisis de litigios laborales previos (reinstalaciones vs. Indemnizaciones)",
+        "Rotación y diferenciación entre terminación voluntaria e involuntaria",
         "Impacto de ciclos económicos"
       ]
     },
@@ -107,10 +106,10 @@ export default function IndemnizacionesPage() {
       factor: "Montos de Indemnización",
       descripcion: "Cálculo del valor presente de pagos esperados por indemnizaciones",
       componentes: [
-        "Salarios proyectados al momento del despido",
+        "Salarios proyectados al momento del despido, así como montos actualizados por inflación",
         "Antigüedad esperada al momento de terminación",
         "Prima de antigüedad asociada",
-        "Costos legales y procesales"
+        "Costos legales, procesales y compensatorios"
       ]
     },
     {
@@ -118,8 +117,8 @@ export default function IndemnizacionesPage() {
       descripcion: "Momentos esperados en que se materializarán las obligaciones",
       componentes: [
         "Distribución temporal de despidos",
-        "Duración promedio de procesos legales",
-        "Patrones estacionales de terminaciones",
+        "Duración promedio de procesos legales, conciliación y resolución",
+        "Desfase por arreglos conciliatorios",
         "Impacto de reestructuraciones planeadas"
       ]
     }
@@ -130,26 +129,37 @@ export default function IndemnizacionesPage() {
       etapa: "Análisis de Experiencia",
       descripcion: "Estudio de la experiencia histórica de terminaciones laborales en la empresa",
       actividades: [
-        "Recopilación de datos de terminaciones (5-10 años)",
+        "Recopilación de datos de terminaciones",
         "Clasificación por tipo de terminación",
         "Análisis de montos pagados históricamente",
         "Identificación de tendencias y patrones"
       ],
-      duracion: "3-4 semanas"
+      duracion: "2-3 días"
+    },
+    {
+      etapa: "Definición de Hipótesis",
+      descripcion: "Establecimiento de supuestos actuariales basados en la experiencia de la empresa y el mercado",
+      actividades: [
+        "Tasas de rotación por edad y antigüedad",
+        "Probabilidades de sobrevivencia y permanencia",
+        "Incrementos salariales esperados (carrera salarial y salario mínimo)",
+        "Tasa de descuento apropiada"
+      ],
+      duracion: "2-3 días"
     },
     {
       etapa: "Modelado Actuarial",
       descripcion: "Desarrollo de modelo probabilístico para proyectar futuras indemnizaciones",
       actividades: [
         "Definición de hipótesis de terminación",
-        "Modelado de montos esperados",
-        "Incorporación de factores de riesgo",
+        "Modelado de montos pagos esperados",
+        "Incorporación de factores exógenos de riesgo",
         "Validación con experiencia histórica"
       ],
-      duracion: "4-5 semanas"
+      duracion: "2-3 días"
     },
     {
-      etapa: "Cálculo de Reservas",
+      etapa: "Cálculo actuarial de Reservas",
       descripcion: "Determinación del pasivo actuarial por concepto de indemnizaciones",
       actividades: [
         "Proyección de flujos de efectivo",
@@ -157,16 +167,16 @@ export default function IndemnizacionesPage() {
         "Análisis de sensibilidad",
         "Cálculo de componentes del costo"
       ],
-      duracion: "2-3 semanas"
+      duracion: "1-3 días"
     },
     {
       etapa: "Monitoreo y Actualización",
       descripcion: "Establecimiento de procesos de seguimiento y actualización periódica",
       actividades: [
-        "Sistema de alertas tempranas",
-        "Actualización trimestral/anual",
+        "Seguimiento periódico de los principales supuestos actuariales",
+        "Actualización anual con base en información real observada",
         "Análisis de experiencia vs. esperado",
-        "Ajuste de hipótesis según tendencias"
+        "Ajuste de hipótesis según tendencias laborales, económicas y legales"
       ],
       duracion: "Proceso continuo"
     }
@@ -176,65 +186,82 @@ export default function IndemnizacionesPage() {
     {
       categoria: "Riesgos Legales",
       riesgos: [
-        "Cambios en legislación laboral",
-        "Nuevas interpretaciones jurisprudenciales",
-        "Modificaciones en criterios de autoridades",
-        "Reformas al sistema de justicia laboral"
+        "Cambios en legislación laboral aplicable",
+        "Nuevas interpretaciones o criterios jurisprudenciales relevantes",
+        "Modificaciones en criterios o prácticas de autoridades laborales",
+        "Reformas al sistema de justicia y conciliación laboral"
       ],
-      mitigacion: "Monitoreo constante de cambios normativos y actualización de políticas"
+      mitigacion: [
+        "Monitoreo permanente del marco normativo y judicial",
+        "Actualización oportuna de políticas internas y contratos laborales",
+        "Coordinación continua con las áreas legal y de cumplimiento"
+      ]
     },
     {
       categoria: "Riesgos Operacionales",
       riesgos: [
         "Reestructuraciones no planificadas",
-        "Crisis económicas o sectoriales",
-        "Cambios en estrategia empresarial",
+        "Crisis económicas o sectoriales adversos",
+        "Cambios estratégicos en el modelo de negocio",
         "Problemas de liquidez temporal"
       ],
-      mitigacion: "Scenario planning y constitución de reservas contingentes"
+      mitigacion: [
+        "Planeación de escenarios y análisis de sensibilidad",
+        "Constitución de reservas técnicas o provisiones contingentes",
+        "Políticas de gestión de liquidez para eventos extraordinarios resultantes de litigios"
+      ]
     },
     {
       categoria: "Riesgos Actuariales",
       riesgos: [
-        "Experiencia adversa vs. hipótesis",
+        "Diferencias significativas entre la experiencia observada y los supuestos actuariales",
         "Concentración en ciertos grupos demográficos",
         "Correlación entre terminaciones",
-        "Inadecuación de datos históricos"
+        "Inadecuación de datos históricos",
+        "Subestimación de probabilidades de terminación o duración de litigios",
+        "Sensibilidad del pasivo ante cambios en variables clave"
       ],
-      mitigacion: "Validación continua de hipótesis y análisis de sensibilidad robusto"
+      mitigacion: [
+        "Validación continua de hipótesis y análisis de sensibilidad robusto",
+        "Pruebas y consideración de escenarios adversos",
+        "Documentación y gobierno de cambios en hipótesis actuariales"
+      ]
     }
   ];
 
   const estrategiasGestion = [
     {
       estrategia: "Gestión de Políticas de RH",
-      descripcion: "Implementación de mejores prácticas para reducir riesgo de terminaciones conflictivas",
+      descripcion: "Implementación de mejores prácticas para reducir riesgo de terminaciones conflictivas y litigios",
       acciones: [
-        "Programas de capacitación en legislación laboral",
-        "Políticas claras de disciplina progresiva",
-        "Documentación adecuada de procesos",
-        "Sistemas de evaluación de desempeño objetivos"
-      ]
+        "Capacitación continua en legislación laboral y cumplimiento normativo",
+        "Establecimiento de políticas claras de disciplina progresiva",
+        "Documentación sistemática y adecuada de procesos",
+        "Sistemas de evaluación del desempeño basados en criterios objetivos y medibles"
+      ],
+      impacto: "Reducción de despidos conflictivos y mayor respaldo legal ante controversias."
     },
     {
       estrategia: "Provisión Financiera",
-      descripcion: "Establecimiento de reservas y fondos para cubrir obligaciones potenciales",
+      descripcion: "Establecimiento de mecanismos financieros para cubrir y absorber obligaciones potenciales laborales futuras sin afectar la estabilidad financiera.",
       acciones: [
-        "Constitución de reservas según valuación actuarial",
-        "Fondos específicos para contingencias laborales",
-        "Optimización fiscal de provisiones",
-        "Seguros de responsabilidad civil patronal"
-      ]
+        "Determinación de reservas con base en valuaciones actuariales",
+        "Creación de fondos específicos para contingencias laborales",
+        "Optimización fiscal de provisiones y pasivos laborales",
+        "Contratación de seguros de responsabilidad civil patronal"
+      ],
+      impacto: "Mayor certidumbre financiera y mitigación del riesgo de pérdidas extraordinarias por pagos de ejercicios anteriores."
     },
     {
       estrategia: "Gestión Proactiva de Casos",
-      descripcion: "Manejo temprano y efectivo de conflictos laborales para minimizar exposiciones",
+      descripcion: "Atención temprana, estratégica y efectiva de conflictos laborales para limitar su escalamiento y costo económico.",
       acciones: [
-        "Sistemas de alerta temprana de conflictos",
-        "Mediación y conciliación preventiva",
-        "Asesoría legal especializada continua",
-        "Negociación estratégica de finiquitos"
-      ]
+        "Alerta para identificar conflictos potenciales",
+        "Acompañamiento legal especializado",
+        "Uso de mecanismos de mediación y conciliación preventiva",
+        "Negociación estratégica de finiquitos y convenios laborales"
+      ],
+      impacto: "Disminución de litigios prolongados y reducción del costo total de indemnizaciones."
     }
   ];
 
@@ -458,12 +485,11 @@ export default function IndemnizacionesPage() {
                 <p>
                   Estas obligaciones requieren <strong>valuación actuarial especializada</strong> para estimar 
                   su valor presente, considerando probabilidades de terminación, montos esperados y timing de 
-                  pagos, permitiendo el reconocimiento contable adecuado de estos pasivos contingentes.
+                  pagos, permitiendo el reconocimiento contable adecuado de estos pasivos contingentes y una correcta gestión del riesgo laboral.
                 </p>
 
                 <p>
-                  La valuación de indemnizaciones es esencial para el <strong>cumplimiento contable</strong> 
-                  bajo normativas mexicanas e internacionales, y para la gestión de riesgos laborales en 
+                  La valuación de indemnizaciones es esencial para el <strong>cumplimiento contable</strong> bajo normativas mexicanas e internacionales, y para la gestión de riesgos laborales en 
                   organizaciones de cualquier tamaño.
                 </p>
               </div>
@@ -480,7 +506,7 @@ export default function IndemnizacionesPage() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-6">Características Clave</h3>
                 <div className="space-y-4">
                   {[
-                    "Obligaciones contingentes por terminación",
+                    "Obligaciones contingentes asociadas a la terminación laboral",
                     "Cálculo basado en salarios y antigüedad", 
                     "Diferentes tipos según causa de terminación",
                     "Requiere provisión contable actuarial"
@@ -709,7 +735,14 @@ export default function IndemnizacionesPage() {
                       </div>
                       <div>
                         <h4 className="text-lg font-medium text-gray-900 mb-3">Estrategia de Mitigación</h4>
-                        <p className="text-sm text-gray-600">{categoria.mitigacion}</p>
+                        <ul className="space-y-2">
+                          {categoria.mitigacion.map((item, itemIndex) => (
+                            <li key={itemIndex} className="text-sm text-gray-600 flex items-start gap-2">
+                              <CheckCircleIcon className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -752,7 +785,7 @@ export default function IndemnizacionesPage() {
                 <div className="mb-4 h-px w-12 bg-gray-900" />
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{estrategia.estrategia}</h3>
                 <p className="text-gray-600 mb-4">{estrategia.descripcion}</p>
-                <div className="grid sm:grid-cols-2 gap-2">
+                <div className="grid sm:grid-cols-2 gap-2 mb-4">
                   {estrategia.acciones.map((accion, accionIndex) => (
                     <div key={accionIndex} className="text-sm text-gray-600 flex items-start gap-2">
                       <CheckCircleIcon className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
@@ -760,6 +793,7 @@ export default function IndemnizacionesPage() {
                     </div>
                   ))}
                 </div>
+                <p className="text-sm text-blue-600 font-medium italic">Impacto esperado: {estrategia.impacto}</p>
               </motion.div>
             ))}
           </div>

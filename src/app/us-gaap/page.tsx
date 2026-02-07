@@ -177,7 +177,7 @@ export default function UsGaapPage() {
         "Identificación de requerimientos ASC 715",
         "Gap analysis con prácticas actuales"
       ],
-      duracion: "3-4 semanas"
+      duracion: "1 semana"
     },
     {
       paso: "Valuación bajo US GAAP",
@@ -188,7 +188,7 @@ export default function UsGaapPage() {
         "Cálculo de componentes del costo",
         "Determinación de método corredor si aplica"
       ],
-      duracion: "6-8 semanas"
+      duracion: "1-3 días"
     },
     {
       paso: "Implementación Contable",
@@ -199,7 +199,7 @@ export default function UsGaapPage() {
         "Preparación de revelaciones ASC 715",
         "Ajuste de políticas contables"
       ],
-      duracion: "4-5 semanas"
+      duracion: "1-2 días"
     },
     {
       paso: "Mantenimiento Continuo",

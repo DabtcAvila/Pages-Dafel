@@ -63,7 +63,7 @@ export default function PrimaAntiguedadPage() {
       descripcion: "Metodología técnica para determinar el valor presente de las obligaciones futuras por prima de antigüedad.",
       puntos: [
         "Método de crédito unitario proyectado",
-        "Consideración de probabilidades de permanencia",
+        "Consideración de probabilidades de permanencia (muerte, invalidez, rotación, jubilación, despido)",
         "Proyección de salarios futuros",
         "Descuento a valor presente"
       ]
@@ -73,10 +73,7 @@ export default function PrimaAntiguedadPage() {
       titulo: "Población Objetivo",
       descripcion: "Trabajadores que cumplan con los requisitos de elegibilidad establecidos en la legislación laboral.",
       puntos: [
-        "Mínimo 15 años de servicio",
-        "Trabajadores con contrato indefinido",
-        "Exclusión de trabajadores de confianza (opcional)",
-        "Consideración de rotación histórica"
+        "Trabajadores con contrato indefinido"
       ]
     },
     {
@@ -85,7 +82,7 @@ export default function PrimaAntiguedadPage() {
       descripcion: "Reconocimiento contable y fiscal de las obligaciones por prima de antigüedad en los estados financieros.",
       puntos: [
         "Pasivo en balance general",
-        "Costo anual de servicios",
+        "Costo anual de servicios con cargo a resultados",
         "Deducibilidad fiscal condicionada",
         "Revelaciones en notas explicativas"
       ]
@@ -95,60 +92,68 @@ export default function PrimaAntiguedadPage() {
   const procesoValuacion = [
     {
       etapa: "Análisis Demográfico",
-      descripcion: "Recopilación y análisis de información de la población trabajadora para la valuación",
+      descripcion: "Recopilación y análisis de información de trabajadores para la valuación",
       actividades: [
-        "Censo de empleados elegibles",
-        "Historial salarial por empleado",
+        "Censo de empleados por edad y antigüedad",
+        "Incremento salarial",
         "Análisis de rotación histórica",
-        "Identificación de grupos actuariales"
+        "Consistencias de información respecto a años anteriores"
       ],
-      duracion: "2-3 semanas"
+      duracion: "2-3 días"
     },
     {
       etapa: "Definición de Hipótesis",
       descripcion: "Establecimiento de supuestos actuariales basados en la experiencia de la empresa y el mercado",
       actividades: [
         "Tasas de rotación por edad y antigüedad",
-        "Incrementos salariales esperados",
+        "Incrementos salariales esperados (carrera salarial y salario mínimo)",
         "Tasa de descuento apropiada",
-        "Probabilidades de sobrevivencia"
+        "Probabilidades de sobrevivencia y permanencia"
       ],
-      duracion: "1-2 semanas"
+      duracion: "2-3 días"
     },
     {
       etapa: "Cálculo Actuarial",
       descripcion: "Aplicación de metodología técnica para determinar obligaciones y costos anuales",
       actividades: [
-        "Proyección de carreras salariales",
+        "Proyección de carreras salariales considerando el tope existente",
         "Cálculo de beneficios futuros",
         "Descuento a valor presente",
         "Determinación de costo de servicios"
       ],
-      duracion: "2-3 semanas"
+      duracion: "1-3 días"
     },
     {
       etapa: "Reporte y Seguimiento",
-      descripcion: "Elaboración de informes técnicos y establecimiento de procesos de actualización",
+      descripcion: "Elaboración de informes técnicos y establecimiento de procesos de seguimiento",
       actividades: [
         "Informe actuarial detallado",
-        "Recomendaciones de política",
         "Plan de actualizaciones futuras",
         "Capacitación al equipo interno"
       ],
-      duracion: "1-2 semanas"
+      duracion: "1-2 días"
     }
   ];
 
   const factoresClaved = [
     {
+      factor: "Crecimiento Salario Mínimo",
+      impacto: "Alto",
+      descripcion: "Incremento al salario mínimo amplía el tope de referencia para el cálculo",
+      consideraciones: [
+        "Política de aumentos anuales emitidas por el Poder Ejecutivo",
+        "Relación entre salario mínimo y salarios de los trabajadores",
+        "Riesgo de incrementos no previstos"
+      ]
+    },
+    {
       factor: "Antigüedad de la Plantilla",
       impacto: "Alto",
       descripcion: "Mayor antigüedad promedio incrementa significativamente las obligaciones",
       consideraciones: [
-        "Distribución por rangos de antigüedad",
+        "Distribución por rangos de antigüedad empleados cerca de los 15 años de servicio",
         "Proyección de jubilaciones próximas", 
-        "Impacto de reestructuras organizacionales",
-        "Planes de retiro anticipado"
+        "Impacto de reestructuras organizacionales"
       ]
     },
     {
@@ -157,8 +162,8 @@ export default function PrimaAntiguedadPage() {
       descripcion: "Tasas de rotación históricas afectan la probabilidad de alcanzar 15 años",
       consideraciones: [
         "Análisis por grupos demográficos",
-        "Diferenciación por nivel jerárquico",
-        "Estacionalidad en rotación",
+        "Diferenciación por antigüedad",
+        "Impacto de la separación voluntaria",
         "Impacto de beneficios adicionales"
       ]
     },
@@ -169,8 +174,7 @@ export default function PrimaAntiguedadPage() {
       consideraciones: [
         "Política de aumentos anuales",
         "Promociones y cambios de puesto",
-        "Inflación y ajustes del mercado",
-        "Topes salariales para la prima"
+        "Inflación y ajustes del mercado"
       ]
     },
     {
@@ -181,7 +185,8 @@ export default function PrimaAntiguedadPage() {
         "Bonos gubernamentales de largo plazo",
         "Curva de rendimientos apropiada",
         "Duración promedio de obligaciones",
-        "Consistencia con otras valuaciones"
+        "Consistencia en supuestos financieros con otras valuaciones",
+        "Impacto de sensibilidad en la tasa sobre el pasivo"
       ]
     }
   ];
@@ -190,28 +195,27 @@ export default function PrimaAntiguedadPage() {
     {
       categoria: "Gestión de Costos",
       estrategias: [
-        "Política de topes salariales para cálculo",
-        "Programas de retiro voluntario",
-        "Revisión de elegibilidad por categorías",
-        "Fondeo anticipado de obligaciones"
+        "Política de topes salariales para cálculo del beneficio",
+        "Programas de retiro voluntario valuando costo–beneficio",
+        "Revisión de elegibilidad por perfil de riesgo y antigüedad",
+        "Fondeo anticipado de obligaciones",
+        "Impacto de incrementos al salario mínimo en el pasivo"
       ]
     },
     {
       categoria: "Optimización Fiscal",
       estrategias: [
-        "Constitución de reservas deducibles",
-        "Timing de pagos para optimización fiscal",
         "Estructura de fondos de pensiones",
-        "Aprovechamiento de beneficios fiscales"
+        "Aprovechamiento de beneficios fiscales aplicables"
       ]
     },
     {
       categoria: "Gestión Actuarial",
       estrategias: [
-        "Valuaciones más frecuentes para mayor precisión",
-        "Análisis de sensibilidad periódico",
-        "Monitoreo de cambios demográficos",
-        "Actualización de hipótesis técnicas"
+        "Valuaciones actuariales periódicas con supuestos actuales",
+        "Análisis de sensibilidad constante y escenarios adversos",
+        "Monitoreo de cambios demográficos y salariales",
+        "Actualización de hipótesis y validación frente a experiencia"
       ]
     }
   ];
@@ -430,7 +434,9 @@ export default function PrimaAntiguedadPage() {
                 <p>
                   La <strong>Prima de Antigüedad</strong> es una prestación laboral establecida en la 
                   Ley Federal del Trabajo de México, consistente en el pago de <strong>12 días de salario 
-                  por cada año de servicio</strong> a trabajadores que cumplan al menos 15 años de antigüedad.
+                  por cada año de servicio</strong> al terminar la relación laboral por las causas de 
+                  fallecimiento, invalidez o despido sin requisitos de antigüedad mínima. Para salidas 
+                  por separación voluntaria, se paga cuando el trabajador tiene al menos 15 años de servicios.
                 </p>
                 
                 <p>
@@ -442,7 +448,11 @@ export default function PrimaAntiguedadPage() {
                 <p>
                   El cálculo actuarial de la prima de antigüedad es fundamental para el <strong>cumplimiento 
                   contable</strong> bajo NIF D-3, IAS-19 o US GAAP, y representa uno de los pasivos 
-                  laborales más significativos para empresas mexicanas.
+                  laborales más significativos, ya que es aplicable a toda empresa con trabajadores en México.
+                </p>
+                
+                <p className="text-sm italic text-gray-500">
+                  *Sueldo topado a 2 salarios mínimos vigentes.
                 </p>
               </div>
             </motion.div>
@@ -459,7 +469,7 @@ export default function PrimaAntiguedadPage() {
                 <div className="space-y-4">
                   {[
                     "12 días de salario por año trabajado",
-                    "Mínimo 15 años de antigüedad", 
+                    "Mínimo 15 años de antigüedad en caso de separación voluntaria", 
                     "Derecho irrenunciable del trabajador",
                     "Obligación patronal establecida en LFT"
                   ].map((item, index) => (

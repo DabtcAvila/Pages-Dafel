@@ -11,11 +11,9 @@ export default function RecursosPage() {
 
   return (
     <>
-      {/* Navbar */}
       <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-18">
-            {/* Logo */}
             <div className="flex items-center">
               <Link href="/">
                 <img
@@ -26,7 +24,6 @@ export default function RecursosPage() {
               </Link>
             </div>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="flex items-center space-x-8">
                 <Link href="/boletines" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
@@ -53,7 +50,6 @@ export default function RecursosPage() {
                   <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{backgroundColor: '#004B87'}}></span>
                 </span>
 
-                {/* More Menu Dropdown */}
                 <div className="relative">
                   <button
                     onClick={() => setIsNavButtonsVisible(!isNavButtonsVisible)}
@@ -69,7 +65,6 @@ export default function RecursosPage() {
                     </motion.div>
                   </button>
 
-                  {/* Dropdown Menu */}
                   <AnimatePresence>
                     {isNavButtonsVisible && (
                       <motion.div
@@ -107,7 +102,6 @@ export default function RecursosPage() {
               </div>
             </div>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -126,7 +120,6 @@ export default function RecursosPage() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -178,9 +171,7 @@ export default function RecursosPage() {
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
       <main className="min-h-screen bg-gray-50 pt-24">
-        {/* Hero Section */}
         <section className="bg-white py-12 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl font-light text-gray-900">
@@ -192,84 +183,57 @@ export default function RecursosPage() {
           </div>
         </section>
 
-        {/* Formación Profesional Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
+            <div className="mb-10">
               <h2 className="text-2xl font-light text-gray-900">
-                <span className="font-semibold" style={{color: '#004B87'}}>Formación</span> Profesional
+                <span className="font-semibold" style={{color: '#004B87'}}>Cursos</span> Profesionales
               </h2>
             </div>
-            
-            {/* Curso IAS 19 */}
-            <div className="grid gap-6">
-              <Link href="/recursos/curso-ias19" className="group">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 hover:shadow-lg transition-all duration-300 hover:border-blue-300">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center mb-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-md">
-                          IAS
-                        </div>
-                        <div className="ml-4">
-                          <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                            Curso IAS 19 - Beneficios a Empleados
-                          </h3>
-                          <p className="text-sm text-gray-600 mt-1">
-                            Normas Internacionales & NIF D-3
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <p className="text-gray-700 mb-4">
-                        Domina la contabilización de beneficios a empleados con casos prácticos del contexto mexicano. 
-                        Incluye aguinaldo, PTU, prima de antigüedad, planes de pensiones y más.
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">
-                          5 Módulos
-                        </span>
-                        <span className="px-3 py-1 bg-green-50 text-green-700 text-xs font-medium rounded-full">
-                          Certificado Dafel
-                        </span>
-                        <span className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-full">
-                          Casos Prácticos
-                        </span>
-                        <span className="px-3 py-1 bg-orange-50 text-orange-700 text-xs font-medium rounded-full">
-                          4 horas
-                        </span>
-                      </div>
-                      
-                      <div className="flex items-center font-medium" style={{color: '#004B87'}}>
-                        <span>Comenzar Curso</span>
-                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+
+            <div className="grid gap-8">
+              <Link href="/recursos/ias-19-employee-benefits" className="group">
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-blue-200">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="md:w-48 bg-gradient-to-br from-[#004B87] to-[#0066CC] flex items-center justify-center p-8 md:p-0">
+                      <div className="text-center text-white">
+                        <span className="text-4xl font-bold block">IAS</span>
+                        <span className="text-5xl font-black block leading-none">19</span>
                       </div>
                     </div>
-                    
-                    <div className="ml-6 flex-shrink-0">
-                      <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center">
-                        <svg className="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                    <div className="flex-1 p-6 md:p-8">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-1">
+                            <span className="text-xs font-semibold uppercase tracking-wider" style={{color: '#004B87'}}>IAS Standards</span>
+                            <span className="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-medium rounded-full">Actualizado Feb 2026</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#004B87] transition-colors mt-2">
+                            IAS 19 — Employee Benefits
+                          </h3>
+                          <p className="text-gray-600 mt-3 leading-relaxed">
+                            Curso completo sobre la norma internacional de beneficios a empleados. 
+                            Cubre beneficios a corto plazo, post-empleo, largo plazo y por terminaci&oacute;n, 
+                            con enfoque pr&aacute;ctico al contexto mexicano (NIF D-3).
+                          </p>
+                          <div className="flex flex-wrap gap-2 mt-4">
+                            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Short-term Benefits</span>
+                            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Post-employment</span>
+                            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Defined Benefit Plans</span>
+                            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Termination Benefits</span>
+                          </div>
+                          <div className="flex items-center mt-6 font-semibold text-sm group-hover:translate-x-1 transition-transform" style={{color: '#004B87'}}>
+                            <span>Acceder al curso</span>
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </Link>
-              
-              {/* Placeholder para futuros cursos */}
-              <div className="bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-8">
-                <div className="text-center">
-                  <svg className="w-12 h-12 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
-                  <p className="text-gray-600 font-medium">Más cursos próximamente</p>
-                  <p className="text-gray-500 text-sm mt-1">Estamos preparando contenido adicional sobre NIF D-3, US GAAP y más</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
