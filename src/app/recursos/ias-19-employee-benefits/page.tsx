@@ -5436,6 +5436,8 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
   const [certForm, setCertForm] = useState({ fullName: existingCertificate?.name || '', ethicsAccepted: false });
   const [certGenerated, setCertGenerated] = useState(!!existingCertificate);
   const [certId, setCertId] = useState(existingCertificate?.id || '');
+  const [certLoading, setCertLoading] = useState(false);
+  const [certError, setCertError] = useState<string | null>(null);
 
   const questions = evaluacionFinalQuestions;
   const question = questions[currentQ];
@@ -5474,12 +5476,15 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
     return id;
   };
 
-  const generatePDF = async (redownload = false) => {
+  const generatePDF = async (redownload = false): Promise<boolean> => {
+    setCertError(null);
+    setCertLoading(true);
+    try {
     const nameToUse = redownload && existingCertificate?.name ? existingCertificate.name : certForm.fullName;
     const idToUse = redownload && existingCertificate?.id ? existingCertificate.id : null;
-    
-    if (!redownload && (!certForm.fullName.trim() || !certForm.ethicsAccepted)) return;
-    if (redownload && !nameToUse) return;
+
+    if (!redownload && (!certForm.fullName.trim() || !certForm.ethicsAccepted)) return false;
+    if (redownload && !nameToUse) return false;
 
     const newCertId = idToUse || generateCertId();
     if (!idToUse) setCertId(newCertId);
@@ -5492,9 +5497,16 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
     const page = pdfDoc.addPage([842, 595]);
     const { width, height } = page.getSize();
 
-    const logoResponse = await fetch('/dafel-logo-cert.png');
-    const logoBytes = await logoResponse.arrayBuffer();
-    const logoImage = await pdfDoc.embedPng(logoBytes);
+    let logoImage;
+    try {
+      const logoResponse = await fetch('/dafel-logo-cert.png');
+      if (logoResponse.ok) {
+        const logoBytes = await logoResponse.arrayBuffer();
+        logoImage = await pdfDoc.embedPng(logoBytes);
+      }
+    } catch {
+      // Logo no disponible; el certificado se generara sin logo
+    }
 
     const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
     const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
@@ -5570,9 +5582,11 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
     const hoursWidth = helvetica.widthOfTextAtSize(hoursText, 9);
     page.drawText(hoursText, { x: width / 2 - hoursWidth / 2, y: height - 378, size: 9, font: helvetica, color: mediumGray });
 
-    const logoWidth = 90;
-    const logoHeight = 54;
-    page.drawImage(logoImage, { x: 60, y: 70, width: logoWidth, height: logoHeight });
+    if (logoImage) {
+      const logoWidth = 90;
+      const logoHeight = 54;
+      page.drawImage(logoImage, { x: 60, y: 70, width: logoWidth, height: logoHeight });
+    }
 
     page.drawLine({ start: { x: 170, y: 105 }, end: { x: 320, y: 105 }, thickness: 0.8, color: darkGray });
     page.drawLine({ start: { x: width / 2 + 40, y: 105 }, end: { x: width / 2 + 190, y: 105 }, thickness: 0.8, color: darkGray });
@@ -5609,14 +5623,26 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
 
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
+    link.href = url;
     link.download = `Certificado_IAS19_${nameToUse.replace(/\s+/g, '_')}.pdf`;
+    link.style.display = 'none';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
 
     setCertGenerated(true);
     onPass?.();
     onCertificateEarned?.(certForm.fullName, newCertId);
+    return true;
+    } catch (error) {
+      setCertError('No se pudo generar el certificado. Por favor, intenta de nuevo.');
+      return false;
+    } finally {
+      setCertLoading(false);
+    }
   };
 
   const correctCount = existingCertificate ? 20 : answers.reduce((acc, a, i) => acc + (a === questions[i].correctIndex ? 1 : 0), 0);
@@ -5657,15 +5683,19 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
                 <p className="text-sm text-gray-600">ID: <strong>{existingCertificate.id}</strong></p>
                 <p className="text-sm text-gray-600">Fecha: <strong>{existingCertificate.date ? new Date(existingCertificate.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</strong></p>
                 <button
-                  onClick={() => generatePDF(true)}
-                  className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
+                  onClick={async () => { await generatePDF(true); }}
+                  disabled={certLoading}
+                  className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-50"
                   style={{ backgroundColor: '#004B87' }}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Descargar Certificado PDF
+                  {certLoading ? 'Generando...' : 'Descargar Certificado PDF'}
                 </button>
+                {certError && (
+                  <p className="mt-2 text-sm text-red-600 text-center">{certError}</p>
+                )}
               </div>
 
               <div className="mt-8">
@@ -5758,12 +5788,16 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
                 <p className="text-sm text-gray-600">ID: <strong>{certId}</strong></p>
                 <p className="text-xs text-gray-400 mt-2">El PDF se ha descargado automaticamente.</p>
                 <button
-                  onClick={() => generatePDF(false)}
-                  className="mt-4 text-sm font-medium underline"
+                  onClick={async () => { await generatePDF(false); }}
+                  disabled={certLoading}
+                  className="mt-4 text-sm font-medium underline disabled:opacity-50"
                   style={{ color: '#004B87' }}
                 >
-                  Descargar nuevamente
+                  {certLoading ? 'Generando...' : 'Descargar nuevamente'}
                 </button>
+                {certError && (
+                  <p className="mt-2 text-xs text-red-600">{certError}</p>
+                )}
               </div>
             )}
           </div>
@@ -5814,7 +5848,7 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
-              onClick={() => setShowCertModal(false)}
+              onClick={() => { if (!certLoading) setShowCertModal(false); }}
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -5872,20 +5906,27 @@ function EvaluacionFinal({ onPass, onCertificateEarned, existingCertificate }: {
 
                   <div className="flex gap-3 pt-2">
                     <button
-                      onClick={() => setShowCertModal(false)}
-                      className="flex-1 px-4 py-3 rounded-xl text-sm font-medium border-2 border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
+                      onClick={() => { if (!certLoading) setShowCertModal(false); }}
+                      disabled={certLoading}
+                      className="flex-1 px-4 py-3 rounded-xl text-sm font-medium border-2 border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-40"
                     >
                       Cancelar
                     </button>
                     <button
-                      onClick={() => { generatePDF(); setShowCertModal(false); }}
-                      disabled={!certForm.fullName.trim() || !certForm.ethicsAccepted}
+                      onClick={async () => {
+                        const success = await generatePDF();
+                        if (success) setShowCertModal(false);
+                      }}
+                      disabled={!certForm.fullName.trim() || !certForm.ethicsAccepted || certLoading}
                       className="flex-1 px-4 py-3 rounded-xl text-sm font-medium text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
                       style={{ backgroundColor: '#004B87' }}
                     >
-                      Generar Certificado PDF
+                      {certLoading ? 'Generando...' : 'Generar Certificado PDF'}
                     </button>
                   </div>
+                  {certError && (
+                    <p className="mt-3 text-sm text-red-600 text-center">{certError}</p>
+                  )}
                 </div>
               </motion.div>
             </motion.div>

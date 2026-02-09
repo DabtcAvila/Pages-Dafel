@@ -137,23 +137,14 @@ export default function PrimaAntiguedadPage() {
 
   const factoresClaved = [
     {
-      factor: "Crecimiento Salario Mínimo",
-      impacto: "Alto",
-      descripcion: "Incremento al salario mínimo amplía el tope de referencia para el cálculo",
-      consideraciones: [
-        "Política de aumentos anuales emitidas por el Poder Ejecutivo",
-        "Relación entre salario mínimo y salarios de los trabajadores",
-        "Riesgo de incrementos no previstos"
-      ]
-    },
-    {
       factor: "Antigüedad de la Plantilla",
       impacto: "Alto",
       descripcion: "Mayor antigüedad promedio incrementa significativamente las obligaciones",
       consideraciones: [
-        "Distribución por rangos de antigüedad empleados cerca de los 15 años de servicio",
+        "Distribución por rangos de antigüedad",
         "Proyección de jubilaciones próximas", 
-        "Impacto de reestructuras organizacionales"
+        "Impacto de reestructuras organizacionales",
+        "Planes de retiro anticipado"
       ]
     },
     {
@@ -162,8 +153,8 @@ export default function PrimaAntiguedadPage() {
       descripcion: "Tasas de rotación históricas afectan la probabilidad de alcanzar 15 años",
       consideraciones: [
         "Análisis por grupos demográficos",
-        "Diferenciación por antigüedad",
-        "Impacto de la separación voluntaria",
+        "Diferenciación por nivel jerárquico",
+        "Estacionalidad en rotación",
         "Impacto de beneficios adicionales"
       ]
     },
@@ -174,7 +165,8 @@ export default function PrimaAntiguedadPage() {
       consideraciones: [
         "Política de aumentos anuales",
         "Promociones y cambios de puesto",
-        "Inflación y ajustes del mercado"
+        "Inflación y ajustes del mercado",
+        "Topes salariales para la prima"
       ]
     },
     {
@@ -185,8 +177,7 @@ export default function PrimaAntiguedadPage() {
         "Bonos gubernamentales de largo plazo",
         "Curva de rendimientos apropiada",
         "Duración promedio de obligaciones",
-        "Consistencia en supuestos financieros con otras valuaciones",
-        "Impacto de sensibilidad en la tasa sobre el pasivo"
+        "Consistencia con otras valuaciones"
       ]
     }
   ];
@@ -195,27 +186,28 @@ export default function PrimaAntiguedadPage() {
     {
       categoria: "Gestión de Costos",
       estrategias: [
-        "Política de topes salariales para cálculo del beneficio",
-        "Programas de retiro voluntario valuando costo–beneficio",
-        "Revisión de elegibilidad por perfil de riesgo y antigüedad",
-        "Fondeo anticipado de obligaciones",
-        "Impacto de incrementos al salario mínimo en el pasivo"
+        "Política de topes salariales para cálculo",
+        "Programas de retiro voluntario",
+        "Revisión de elegibilidad por categorías",
+        "Fondeo anticipado de obligaciones"
       ]
     },
     {
       categoria: "Optimización Fiscal",
       estrategias: [
+        "Constitución de reservas deducibles",
+        "Timing de pagos para optimización fiscal",
         "Estructura de fondos de pensiones",
-        "Aprovechamiento de beneficios fiscales aplicables"
+        "Aprovechamiento de beneficios fiscales"
       ]
     },
     {
       categoria: "Gestión Actuarial",
       estrategias: [
-        "Valuaciones actuariales periódicas con supuestos actuales",
-        "Análisis de sensibilidad constante y escenarios adversos",
-        "Monitoreo de cambios demográficos y salariales",
-        "Actualización de hipótesis y validación frente a experiencia"
+        "Valuaciones más frecuentes para mayor precisión",
+        "Análisis de sensibilidad periódico",
+        "Monitoreo de cambios demográficos",
+        "Actualización de hipótesis técnicas"
       ]
     }
   ];
